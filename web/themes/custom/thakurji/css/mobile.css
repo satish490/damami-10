@@ -1,0 +1,171 @@
+@media screen and (max-width: 767px) {
+    /* menu area css */
+    .header-top {
+        display: none;
+    }
+    .header-bottom {
+        height: 82px;
+    }
+    .header-bottom .container {
+        position: relative;
+        padding-left: 0 !important;
+        padding-right: 0 !important;
+    }
+    .header-bottom .logo img {
+        width: 50px !important;
+        height: 50px !important;
+    }
+    .header-bottom .menu-area {
+        padding-left: 0px !important;
+        padding-right: 0px !important;
+    }
+    .header-bottom .menu-area {
+       display: unset !important;
+    }
+    .header-bottom .menu-area #superfish-main-toggle span {
+        font-size: 0px;
+        padding: 18px;
+        width: 32px;
+        height: 32px;
+        background:url(..//images/humergmenu.png)no-repeat;
+    }
+    .menu-area {
+        width: 100% !IMPORTANT;
+    }
+    .header-bottom #block-mainnavigation {
+        text-align: right;
+        margin-top: -40px !important;
+    }
+    #superfish-main-accordion {
+        background: #ff9901;
+        position: absolute;
+        margin-top: 37px;
+        z-index: 1111;
+    }
+    #superfish-main-accordion li ul li.sf-clone-parent {
+        display: none;
+    }
+    .header-bottom .menu-area ul li ul {
+        margin-top: unset !important; 
+        border-top: 3px solid #333 !important;
+    }
+    #superfish-main-accordion li.sf-depth-1 {
+        border-bottom: 2px solid #fff;
+    }
+    .menu-area .menu.sf-menu li a {
+        color: #fff;
+    }
+    .header-bottom .menu-area a.sf-depth-1.menuparent.sf-with-ul::after {
+        content: " " !important;
+        margin: 0px;
+        width: 16px;
+        height: 16px;
+        background-size: 100%;
+        background: url(../images/plus.svg) no-repeat;
+        display: inline-block;
+        position: absolute;
+        right: 20px;
+    }
+    .header-bottom .menu-area #block-popoutsearch,
+    .header-bottom .menu-area #block-gtranslate {
+        display: none;
+    } 
+    .header-top {
+        padding: 0px 0px !important;
+    }
+    .menu-area .gtranslate .switcher {
+        position: unset;
+    }
+    .header-bottom .logo .site-title {
+        font-size: 1rem;
+        letter-spacing: 1px;
+    }
+    .header-bottom .logo {
+        float: left;
+        width: 60% !important;
+    }
+    .header-bottom .menu-area .switcher .selected {
+        width: 20px;
+        height: 30px;
+    }
+    .header-top .contact-info {
+        display: unset !important;
+        align-items: unset I !important;
+    }
+    .contact-info li.contact-phone {
+        width: 100% !important;
+    }
+    .contact-info li.contact-email {
+        width: 100%;
+    }
+    .header-top-left .contact-info li.contact-phone:after {
+        content: unset !important;
+
+    }
+    /* banner area css */
+    .view-id-slideshow .views-field.views-field-nothing .title {
+        font-size: 2em !important;
+        line-height: 0px !important;
+
+    }
+    .view-id-slideshow .views_slideshow_controls_text_next a {
+        top: -25px;
+    }
+    .view-id-slideshow .views_slideshow_controls_text_previous a {
+        top: -25px;
+    }
+    .view-id-slideshow .views_slideshow_controls_text_next a,.view-id-slideshow .views_slideshow_controls_text_previous a {
+        width: 30px !important;
+        height: 30px !important;    
+    }
+    /* Temple css */
+    .view-temple .col-sm-4.views-col {
+        width: 100% !important;
+     
+    }
+    .sidebar-second #midcontent_area {
+        width: 100% !important;
+        float: left;
+    }
+    #sidebar_second_area {
+        width: 100% !important;
+        float: right;
+    }
+
+    /*  Gallery Photo  Css */
+    .view--photo-gallery .col-sm-3.views-col {
+        width: 100% !important;
+    }
+    /*  Aarti detail page css */
+    .view-youtube-video-page-listing .col-sm-4.views-col {
+        width: 100% !important;
+        padding: 10px 0px;
+    }
+    .view-youtube-video-page-listing .views-exposed-form input#edit-keys {
+        width: 300px !important;
+        padding-right: 42px;
+    }
+    .view-bhajan .view-header {
+        margin-bottom: 20px;
+    }
+    #views-exposed-form-youtube-video-page-listing-page-1 ,
+    #views-exposed-form-youtube-video-page-listing-page-2,
+    #views-exposed-form-youtube-video-page-listing-page-3,
+    #views-exposed-form-youtube-video-page-listing-page-4
+    {
+        width: 100%;
+    }
+    /* Download pdf css  */
+    .view-pdf-download .col-sm-4.views-col {
+        width: 100% !important;
+    }
+    /* Register Form Css Web form */
+    .thakurji-form .js-form-item.form-item {
+        width: 100% !important;
+        float: left;
+        margin-right: 2%;
+    }
+    #block-thakurji-local-tasks nav.tabs {
+        display: none;
+    }
+}

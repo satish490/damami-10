@@ -1,0 +1,15 @@
+custom_login.custom_login_1:
+  path: '/custom-login-1'
+  defaults:
+    _controller: '\Drupal\custom_login\Controller\CustomLoginController::loginForm1'
+    _title: 'Custom Login 1'
+  requirements:
+    _permission: 'access content'
+
+custom_login.custom_login_2:
+  path: '/custom-login-2'
+  defaults:
+    _controller: '\Drupal\custom_login\Controller\CustomLoginController::loginForm2'
+    _title: 'Custom Login 2'
+  requirements:
+    _permission: 'access content'

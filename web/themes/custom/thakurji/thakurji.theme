@@ -1,0 +1,53 @@
+<?php
+
+/**
+ * @file
+ * thakurji theme file.
+ */
+
+/**
+/**
+ * Implements hook_preprocess_HOOK() for node templates.
+ */
+function thakurji_preprocess_node(&$variables) {
+        // Check if the node is of the "youtube_videos" content type.
+        if ($variables['node']->getType() === 'youtube_videos') {
+          // Get the term title from the first item in the "field_video_category" field.
+          $termTitle = $variables['node']->get('field_video_category')->entity->label();
+      
+          // Set the view display ID based on the term title.
+          $displayId = '';
+          switch ($termTitle) {
+            case 'Bhajan':
+              $displayId = 'block_1';
+              break;
+            case 'Aarti':
+              $displayId = 'block_2';
+              break;
+            case 'Katha':
+              $displayId = 'block_3';
+              break;
+            case 'Mantra':
+              $displayId = 'block_4';
+              break;
+            case 'Devotional movies':
+              $displayId = 'block_5';
+              break;
+          }
+      
+          // Load the view and set the arguments.
+          $viewId = 'latest_video_bhajan';
+          $view = \Drupal\views\Views::getView($viewId);
+      
+          // Check if the view exists.
+          if ($view) {
+            $view->setDisplay($displayId);
+            $view->preExecute();
+            $view->execute();
+      
+            // Pass the rendered view output to the template.
+            $variables['latestVideo'] = $view->render();
+          }
+        }
+      }
+      

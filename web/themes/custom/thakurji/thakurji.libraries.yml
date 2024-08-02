@@ -1,0 +1,12 @@
+global-styling:
+  css:
+    theme:
+      css/style.css: {}
+      css/mobile.css: {}
+      css/theme.css: {}
+      css/bootstrap.min.css: {}
+      css/fade.css: {}
+  js:
+    js/bootstrap.min.js: {}
+    js/simple.js: {}
+    js/fade.js: {}

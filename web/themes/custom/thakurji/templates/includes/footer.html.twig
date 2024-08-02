@@ -1,0 +1,28 @@
+{#
+/**
+ * @file
+ * Theme override to display a single component.
+ *
+ * footer area template
+ */
+#}
+  <div class="whole-footer-middle-area container-fluid">
+    <div class="container">
+        <div class="row">
+          {% if page.footer_middle_first  %}
+            <div class="col-sm-5 footer-middle-first ">{{page.footer_middle_first }}</div>
+          {% endif %}
+          {% if page.footer_middle_second %}
+            <div class="col-sm-3 footer-middle-second">{{page.footer_middle_second}}</div>
+          {% endif %}
+          {% if page.footer_middle_third %}
+            <div class="col-sm-4 footer-middle-third">{{page.footer_middle_third}}</div>
+          {% endif %}
+        </div>
+    </div>
+  </div>
+  {% if page.footer_bottom_logo %}
+    <div class="container-fluid footer-bottom-logo">
+      <div class="container">{{page.footer_bottom_logo}}</div>
+    </div>
+  {% endif %}

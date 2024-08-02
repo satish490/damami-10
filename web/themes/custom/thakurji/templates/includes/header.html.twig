@@ -1,0 +1,35 @@
+{#
+/**
+ * @file
+ * Theme override to display a single component.
+ *
+ * header area template
+ */
+#}
+<header class="main-header">
+  <div class="header-top container-fluid">
+      <div class="container">
+      <div class="row">
+        {% if page.header_top_left%}
+          <div class="col-sm-6 header-top-left">{{page.header_top_left}}</div>
+        {% endif %}
+        {% if page.header_top_right %}
+          <div class="col-sm-6 header-top-right">{{page.header_top_right}}</div>
+        {% endif %}
+        </div>
+      </div>
+    </div>
+   
+  <div class="container-fluid header-bottom">
+      <div class="container">
+      <div class="row">
+        {% if page.logo %}
+          <div class="col-sm-2 logo">{{page.logo}}</div>
+        {% endif %}
+        {% if page.menu_area %}
+          <div class="col-sm-10 menu-area">{{page.menu_area}}</div>
+        {% endif %}
+      </div>
+    </div>
+  </div>
+</header>

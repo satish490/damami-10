@@ -1,0 +1,30 @@
+name: 'Thakurji'
+type: theme
+description: 'Custom theme for Thakurji website.'
+core_version_requirement: ^8 || ^9 || ^10
+base theme: bootstrap5
+libraries:
+  - thakurji/global-styling
+ckeditor_stylesheets:
+  - css/style.css
+ckeditor5-stylesheets:
+  - css/ck5style.css
+stylesheets-remove:
+  - '@bootstrap5/css/style.css'
+regions:
+  header_top_left: 'Header top left'
+  header_top_right: 'Header top right'
+  logo: 'Logo area'
+  menu_area: 'Menu area'
+  breadcrumb: Breadcrumbs
+  banner: 'Banner'
+  content: 'Main content'
+  video_area: 'Video Area'
+  footer_top_area: 'Footer Top Area'
+  footer_top_bottom: 'Footer Top Bottom Area'
+  sidebar_first: 'Sidebar first'
+  sidebar_second: 'Sidebar second'
+  footer_middle_first: 'Footer Middle First Area'
+  footer_middle_second: 'Footer Middle Second Area'
+  footer_middle_third: 'Footer Middle Third Area'
+  footer_bottom_logo: 'Footer bottom logo'
