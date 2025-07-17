@@ -1,6 +1,18 @@
 Changelog
 ==========
 
+#### 1.17.2
+* Fixed bug where `const` declarations were allowed without an initializer
+
+#### 1.17.1
+* Fixed bug where `continue` and `break` were allowed outside iteration and `break` statements
+
+#### 1.17.0
+* Implemented ES2025 parser with import attributes
+
+#### 1.16.3
+* Removed implicitly nullable parameter declarations for PHP 8.4 compatibility
+
 #### 1.16.2
 * Fixed bug where a regex that started with `/=` raised a syntax error
 

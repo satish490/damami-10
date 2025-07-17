@@ -23,10 +23,17 @@
         "drupal/core-project-message": "^10.3",
         "drupal/core-recommended": "^10.3",
         "drupal/csv_serialization": "^4.0",
+        "drupal/dropdown_language": "^4.0",
+        "drupal/entity_reference_revisions": "^1.12",
+        "drupal/faqfield": "^8.0",
+        "drupal/paragraphs": "^1.19",
+        "drupal/quicktabs": "^4.0",
         "drupal/rdf": "^2.1",
+        "drupal/simplenews": "^4.1",
         "drupal/stable": "^2.1",
+        "drupal/views_field_view": "^1.0@beta",
         "drupal/views_slideshow": "^5.0",
-        "drush/drush": "^12.5"
+        "drush/drush": "^13.6"
     },
     "conflict": {
         "drupal/drupal": "*"
@@ -37,12 +44,15 @@
         "allow-plugins": {
             "composer/installers": true,
             "drupal/core-composer-scaffold": true,
-            "drupal/core-project-message": true,
+            "drupal/core-project-message": false,
             "phpstan/extension-installer": true,
             "dealerdirect/phpcodesniffer-composer-installer": true,
-            "php-http/discovery": true
+            "php-http/discovery": true,
+            "symfony/flex": false
         },
-        "sort-packages": true
+         "sort-packages": true,
+        "disable-symlinks": true,                
+        "preferred-install": "dist"              
     },
     "extra": {
         "drupal-scaffold": {

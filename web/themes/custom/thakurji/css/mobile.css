@@ -168,4 +168,21 @@
     #block-thakurji-local-tasks nav.tabs {
         display: none;
     }
+
+/* banner css */
+
+h1 {
+    font-size: 2rem;
+  }
+  h2 {
+    font-size: 1.2rem;
+  }
+  .buttons {
+    flex-direction: column;
+    align-items: center;
+  }
+  .info-cards {
+    flex-direction: column;
+  }
+
 }

@@ -904,3 +904,4 @@ $databases['default']['default'] = array (
 );
 $settings['config_sync_directory'] = 'sites/default/files/config_KjEMnJl-E8pt6HY651tTh47b20gzeL7ZIfw01mmjQ2_w4E9ie9rXZYULj-dUkqjdfikMajlBhA/sync';
 $config['system.logging']['error_level'] = 'verbose';
+$settings['image_toolkit'] = 'gd';

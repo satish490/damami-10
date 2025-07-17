@@ -22,4 +22,18 @@
 
 
    
-        
+        // Donation js
+        document.querySelectorAll(".donation-tab-buttons li").forEach(function(tab) {
+  tab.addEventListener("click", function() {
+    document.querySelectorAll(".donation-tab-buttons li").forEach(function(t) {
+      t.classList.remove("active");
+    });
+    tab.classList.add("active");
+
+    var tabId = tab.getAttribute("data-tab");
+    document.querySelectorAll(".donation-tab-content").forEach(function(content) {
+      content.classList.remove("active");
+    });
+    document.getElementById(tabId).classList.add("active");
+  });
+});

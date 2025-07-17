@@ -1,0 +1,28 @@
+# Hindi translation of Resource Description Framework (RDF) (2.1.1)
+# Copyright (c) 2022 by the Hindi translation team
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Resource Description Framework (RDF) (2.1.1)\n"
+"POT-Creation-Date: 2022-10-21 08:46+0000\n"
+"PO-Revision-Date: YYYY-mm-DD HH:MM+ZZZZ\n"
+"Language-Team: Hindi\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n!=1);\n"
+
+msgid "Types"
+msgstr "प्रकार"
+msgid "ID"
+msgstr "आईडी"
+msgid "Data type"
+msgstr "आंकड़ा प्रारूप"
+msgid "About"
+msgstr "के बारे में"
+msgid "Web services"
+msgstr "वेब सेवाएं"
+msgid "Bundle"
+msgstr "पोटली"
+msgid "Target entity type"
+msgstr "लक्ष्य इकाई प्रकार"
