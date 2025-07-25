@@ -1,0 +1,33 @@
+<div class="gallery-wrapper">
+  <div class="gallery-header">
+    <h2 class="gallery-title">Temple Gallery</h2>
+    <p class="gallery-subtitle">Beautiful moments from our temple captured in photos and videos.</p>
+
+    <div class="gallery-tabs">
+      <button class="tab-btn active" data-tab="photos">📷 Photos</button>
+      <button class="tab-btn" data-tab="videos">▶️ Videos</button>
+    </div>
+
+    <div class="gallery-filters">
+      <button class="filter-btn active" data-filter="All">All</button>
+
+      {% set categories = [] %}
+      {% for row in rows %}
+        {% set cat = row.content['#row'].field_category.0['#markup']|striptags %}
+        {% if cat not in categories %}
+          {% set categories = categories|merge([cat]) %}
+        {% endif %}
+      {% endfor %}
+
+      {% for category in categories %}
+        <button class="filter-btn" data-filter="{{ category }}">{{ category }}</button>
+      {% endfor %}
+    </div>
+  </div>
+
+  <div class="gallery-grid">
+    {% for row in rows %}
+      {{ row.content }} {# This loads views-view-fields--template per row #}
+    {% endfor %}
+  </div>
+</div>

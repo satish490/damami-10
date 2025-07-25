@@ -1,0 +1,12 @@
+{# Safe striptag version to use in data attributes #}
+{% set category = fields.field_category.content|striptags %}
+{% set type = 'photos' %} {# OR make dynamic if you have a type field #}
+
+<div class="gallery-card" data-category="{{ category }}" data-type="{{ type }}">
+  <div class="gallery-image">
+    {{ fields.field_upload_image.content }}
+  </div>
+  <div class="gallery-title-text">
+    <h3>{{ fields.title.content }}</h3>
+  </div>
+</div>

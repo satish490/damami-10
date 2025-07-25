@@ -51,3 +51,10 @@ function thakurji_preprocess_node(&$variables) {
         }
       }
       
+ function thakurji_preprocess_views_view_unformatted(&$variables) {
+  foreach ($variables['rows'] as &$row) {
+    if (isset($row['content']['#row']->_entity)) {
+      $row['content']['#node'] = $row['content']['#row']->_entity;
+    }
+  }
+}

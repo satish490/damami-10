@@ -286,7 +286,7 @@ $databases = [];
  *   $settings['hash_salt'] = file_get_contents('/home/example/salt.txt');
  * @endcode
  */
-$settings['hash_salt'] = 'o-PyjSNf448gfZIJLpN2dSBBr8MJlW9_Envy7gYqwlpc0gLbEs-Jzr3rm7nS1PRsZY0_5f7o4g';
+$settings['hash_salt'] = '3XUU0bSJqRmpvFwZ4eKyAn5IW_p2FFeE3AfWZMxXJWpqLvtSQS3s13U4Kcxhr2e-oScP1aVO9g';
 
 /**
  * Deployment identifier.
@@ -730,6 +730,8 @@ $settings['container_yamls'][] = $app_root . '/' . $site_path . '/services.yml';
  * Provide a fully qualified class name here if you would like to provide an
  * alternate implementation YAML parser. The class must implement the
  * \Drupal\Component\Serialization\SerializationInterface interface.
+ *
+ * This setting is deprecated in Drupal 10.3 and removed in Drupal 11.
  */
 # $settings['yaml_parser_class'] = NULL;
 
@@ -890,18 +892,34 @@ $settings['migrate_node_migrate_type_classic'] = FALSE;
 # if (file_exists($app_root . '/' . $site_path . '/settings.local.php')) {
 #   include $app_root . '/' . $site_path . '/settings.local.php';
 # }
+// $databases['default']['default'] = array (
+//   'database' => 'damami',
+//   'username' => 'root',
+//   'password' => '',
+//   'prefix' => '',
+//   'host' => '127.0.0.1',
+//   'port' => '3306',
+//   'isolation_level' => 'READ COMMITTED',
+//   'driver' => 'mysql',
+//   'namespace' => 'Drupal\\mysql\\Driver\\Database\\mysql',
+//   'autoload' => 'core/modules/mysql\\src\\Driver\\Database\\mysql\\',
+// );
+// $settings['config_sync_directory'] = 'sites/default/files/config_KUDG2rY4BkLVPjcFW70_gty6544clHHb8wbZWde3AH1XzraplVwfrDugqYjwQputcOYiFy9AOg/sync';
+// $config['system.logging']['error_level'] = 'verbose';
+
+
+
+
 $databases['default']['default'] = array (
   'database' => 'damami',
   'username' => 'root',
-  'password' => '',
+  'password' => 'root',
   'prefix' => '',
-  'host' => 'localhost',
-  'port' => '3306',
+  'host' => '127.0.0.1',
+  'port' => '8091',
   'isolation_level' => 'READ COMMITTED',
   'driver' => 'mysql',
   'namespace' => 'Drupal\\mysql\\Driver\\Database\\mysql',
   'autoload' => 'core/modules/mysql\\src\\Driver\\Database\\mysql\\',
 );
-$settings['config_sync_directory'] = 'sites/default/files/config_KjEMnJl-E8pt6HY651tTh47b20gzeL7ZIfw01mmjQ2_w4E9ie9rXZYULj-dUkqjdfikMajlBhA/sync';
-$config['system.logging']['error_level'] = 'verbose';
-$settings['image_toolkit'] = 'gd';
+$settings['config_sync_directory'] = 'sites/default/files/config_Wx5PrdmNSY9oLKNnS5Nu4MV1oL0Z6xcfi3erC5XScYwNZB9FPltUTZuHPfi9FWTMRomHTh7wcQ/sync';

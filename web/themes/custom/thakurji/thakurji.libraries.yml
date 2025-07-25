@@ -10,3 +10,13 @@ global-styling:
     js/bootstrap.min.js: {}
     js/simple.js: {}
     js/fade.js: {}
+  
+  dependencies:
+    - core/jquery
+    - core/drupal.ajax
+    - core/drupal
+    - core/drupalSettings
+    - core/drupal.dialog
+    - core/jquery.once
+
+ 
