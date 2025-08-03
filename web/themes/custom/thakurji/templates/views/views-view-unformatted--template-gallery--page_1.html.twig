@@ -1,0 +1,22 @@
+{% set category_counts = {} %}
+{% for row in rows %}
+{% set cat = row.content['#row']._entity.field_category.entity.label %}
+{% set category_counts = category_counts|merge({ (cat): (category_counts[cat]|default(0)) + 1 }) %}
+{% endfor %}
+
+<div class="filter-buttons">
+<button class="filter-btn active" data-filter="all">
+All Photos ({{ rows|length }})
+</button>
+{% for cat, count in category_counts %}
+<button class="filter-btn" data-filter="{{ cat|clean_class }}">
+{{ cat }} ({{ count }})
+</button>
+{% endfor %}
+</div>
+
+<div class="gallery-grid">
+{% for row in rows %}
+{{ row.content }}  {# comes from views-view-fields--template-gallery--page.html.twig #}
+{% endfor %}
+</div>

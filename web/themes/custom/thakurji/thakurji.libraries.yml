@@ -6,10 +6,12 @@ global-styling:
       css/theme.css: {}
       css/bootstrap.min.css: {}
       css/fade.css: {}
+      https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css: {}
   js:
     js/bootstrap.min.js: {}
     js/simple.js: {}
     js/fade.js: {}
+    https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js: { type: external, minified: true }
   
   dependencies:
     - core/jquery
@@ -18,5 +20,6 @@ global-styling:
     - core/drupalSettings
     - core/drupal.dialog
     - core/jquery.once
+
 
  

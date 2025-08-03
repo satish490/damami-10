@@ -1,0 +1,11 @@
+<div class="swiper-slide position-relative">
+  <a href="javascript:void(0);" class="position-absolute navigation-link"></a>
+  <div style="position: relative;">
+    {% if fields.field_upload_image %}
+      {{ fields.field_upload_image.content }}
+    {% endif %}
+    <div class="media-card">
+      <p class="media-des mb-0">{{ fields.title.content }}</p>
+    </div>
+  </div>
+</div>

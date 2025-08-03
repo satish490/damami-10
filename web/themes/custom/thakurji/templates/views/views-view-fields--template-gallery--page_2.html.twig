@@ -1,0 +1,48 @@
+
+{# 
+{% set category_name = fields.field_video_categary.content|striptags %}
+<div class="gallery-card {{ category_name|clean_class }}">
+<div class="gallery-image">
+{{ fields.field_upload_file_video.content }}
+<span class="gallery-badge">{{ category_name }}</span>
+</div>
+<div class="gallery-info">
+<h3 class="gallery-title">{{ node.label }}</h3>
+</div>
+</div> #}
+
+{# {% set raw_category = fields.field_video_categary.content|striptags %}
+{% set category_class = raw_category|clean_class %}
+
+<div class="gallery-card {{ category_class }}">
+  <div class="gallery-image">
+    {% if fields.field_upload_file_video.content is not empty %}
+      {{ fields.field_upload_file_video.content }}
+    {% else %}
+      {{ fields.field_youtube_video.content }}
+    {% endif %}
+    <span class="gallery-badge">{{ raw_category }}</span>
+  </div>
+
+  <div class="gallery-info">
+    <h3 class="gallery-title">{{ fields.title.content }}</h3>
+  </div>
+</div> #}
+
+
+{% set raw_category = fields.field_video_category.content|striptags %}
+{% set category_class = raw_category|clean_class %}
+
+<div class="gallery-card {{ category_class }}">
+  <div class="gallery-image">
+    {% if fields.field_upload_file_video.content is not empty %}
+      {{ fields.field_upload_file_video.content }}
+    {% else %}
+      {{ fields.field_youtube_video.content }}
+    {% endif %}
+    <span class="gallery-badge">{{ raw_category }}</span>
+  </div>
+  <div class="gallery-info">
+    <h3 class="gallery-title">{{ fields.title.content }}</h3>
+  </div>
+</div>

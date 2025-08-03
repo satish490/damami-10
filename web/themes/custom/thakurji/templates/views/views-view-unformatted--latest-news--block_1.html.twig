@@ -1,0 +1,15 @@
+<div class="media-slider-wrap position-relative">
+  {% if title %}
+    <h3 class="mb-4">{{ title }}</h3>
+  {% endif %}
+
+  <div class="swiper lettestupdateSwiper">
+    <div class="swiper-wrapper">
+      {% for row in rows %}
+        <div class="swiper-slide">
+          {{- row.content -}}
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+</div>

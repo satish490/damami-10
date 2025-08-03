@@ -20,6 +20,7 @@ regions:
   banner: 'Banner'
   content: 'Main content'
   video_area: 'Video Area'
+  video_gallery_area: 'Video Gallery Area'
   footer_top_area: 'Footer Top Area'
   footer_top_bottom: 'Footer Top Bottom Area'
   sidebar_first: 'Sidebar first'

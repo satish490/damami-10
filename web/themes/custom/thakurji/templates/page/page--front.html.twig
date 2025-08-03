@@ -84,6 +84,13 @@
 	{% endif %}
 
 
+	{% if page.video_gallery_area %}
+		<div id="video-gallery-area" class="container">
+			<div id="content">{{ page.video_gallery_area }}</div>
+		</div>
+	{% endif %}
+
+
 	{# {% if page.content %}
 		<div id="maindiv" class="container">
 			<div id="content">{{ page.content }}</div>
@@ -91,7 +98,7 @@
 	{% endif %} #}
 
 	{% if page.footer_top_area %}
-		<div class="footer-top-area container">
+		<div class="footer-top-area">
 			<div id="content">{{ page.footer_top_area }}</div>
 		</div>
 	{% endif %}

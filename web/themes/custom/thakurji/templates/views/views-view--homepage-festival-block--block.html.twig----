@@ -1,0 +1,15 @@
+<div class="festival-grid">
+
+  <div class="festival-header">
+    <div class="festival-title">
+      <span class="icon">📅</span>
+      <h2>{% trans %}Year-Round <strong>Celebrations</strong>{% endtrans %}</h2>
+    </div>
+    <p class="festival-subtitle">
+      {% trans %}Experience the sacred throughout the year with our festival calendar{% endtrans %}
+    </p>
+  </div>
+
+  {{ rows }}
+
+</div>
