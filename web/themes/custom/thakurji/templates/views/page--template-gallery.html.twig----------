@@ -1,0 +1,102 @@
+{# Load Photo View Rows #}
+{% set photo_view = drupal_view_result('template_gallery', 'page_1') %}
+{# Load Video View Rows #}
+{% set video_view = drupal_view_result('template_gallery', 'page_2') %}
+
+<div class="gallery-wrapper">
+
+  <!-- HEADER -->
+  <div class="gallery-header">
+    <h2>Temple Gallery</h2>
+    <p>Beautiful moments from our temple captured in photos and videos.</p>
+
+<!-- Toggle Buttons -->
+<div class="gallery-toggle">
+  <button class="toggle-btn active" data-section="photos">
+    <span class="icon">
+      <img src="{{ directory }}/images/photos.png" alt="Photos" />
+    </span>
+    Photos
+  </button>
+  <button class="toggle-btn" data-section="videos">
+    <span class="icon">
+      <img src="{{ directory }}/images/videos.png" alt="Videos" />
+    </span>
+    Videos
+  </button>
+</div>
+  <!-- =================== PHOTO SECTION =================== -->
+  <div id="photo-section" class="gallery-section">
+
+    {% set photo_category_counts = {} %}
+    {% for row in photo_view %}
+      {% set cat = row._entity.field_category.entity.label %}
+      {% set photo_category_counts = photo_category_counts|merge({ (cat): (photo_category_counts[cat]|default(0)) + 1 }) %}
+    {% endfor %}
+
+    <!-- PHOTO FILTER BUTTONS -->
+    <div class="filter-buttons">
+      <button class="filter-btn active" data-filter="all">
+        All Photos ({{ photo_view|length }})
+      </button>
+      {% for cat, count in photo_category_counts %}
+        <button class="filter-btn" data-filter="{{ cat|clean_class }}">
+          {{ cat }} ({{ count }})
+        </button>
+      {% endfor %}
+    </div>
+
+    <!-- PHOTO GRID -->
+    <div class="gallery-grid">
+      {% for row in photo_view %}
+        {% set category_name = row._entity.field_category.entity.label %}
+        <div class="gallery-card {{ category_name|clean_class }}">
+          <div class="gallery-image">
+            {{ drupal_field('field_upload_image', 'node', row._entity.id()) }}
+            <span class="gallery-badge">{{ category_name }}</span>
+          </div>
+          <div class="gallery-info">
+            <h3 class="gallery-title">{{ row._entity.label }}</h3>
+          </div>
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+  <!-- =================== VIDEO SECTION =================== -->
+  <div id="video-section" class="gallery-section" style="display:none;">
+
+    {% set video_category_counts = {} %}
+    {% for row in video_view %}
+      {% set vcat = row._entity.field_video_category.entity.label %}
+      {% set video_category_counts = video_category_counts|merge({ (vcat): (video_category_counts[vcat]|default(0)) + 1 }) %}
+    {% endfor %}
+
+    <!-- VIDEO FILTER BUTTONS -->
+    <div class="filter-buttons">
+      <button class="filter-btn active" data-filter="all">
+        All Videos ({{ video_view|length }})
+      </button>
+      {% for cat, count in video_category_counts %}
+        <button class="filter-btn" data-filter="{{ cat|clean_class }}">
+          {{ cat }} ({{ count }})
+        </button>
+      {% endfor %}
+    </div>
+
+    <!-- VIDEO GRID -->
+ <!-- VIDEO GRID -->
+<div class="gallery-grid">
+  {% for row in video_view %}
+    {% set category_name = row._entity.field_video_category.entity.label %}
+    <div class="gallery-card {{ category_name|clean_class }}">
+      <div class="gallery-image">
+        {{ drupal_field('field_youtube_video', 'node', row._entity.id()) }}
+        <span class="gallery-badge">{{ category_name }}</span>
+      </div>
+      <div class="gallery-info">
+        <h3 class="gallery-title">{{ row._entity.label }}</h3>
+      </div>
+    </div>
+  {% endfor %}
+</div>
+</div>

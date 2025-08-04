@@ -1,0 +1,7 @@
+views.field.field_cumulative_field:
+  type: views_field
+  label: 'Views Cumulative Field'
+  mapping:
+    data_field:
+      type: string
+      label: 'Data Field'

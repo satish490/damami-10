@@ -1,0 +1,33 @@
+<article class="festival-card container">
+  <div class="festival-layout">
+    {% if content.field_upload_image %}
+      <div class="festival-image">
+        {{ content.field_upload_image }}
+      </div>
+    {% endif %}
+
+    <div class="festival-info">
+      {% if content.field_festival_title %}
+        <h1 class="festival-title">{{ content.field_festival_title }}</h1>
+      {% endif %}
+
+      <div class="festival-meta">
+        {% if content.field_festival_month %}
+          <span class="festival-badge">{{ content.field_festival_month }}</span>
+        {% endif %}
+      </div>
+
+      {% if content.field_festival_dates %}
+        <div class="festival-date">
+          {{ content.field_festival_dates }}
+        </div>
+      {% endif %}
+
+      {% if content.body %}
+        <div class="festival-description">
+          {{ content.body }}
+        </div>
+      {% endif %}
+    </div>
+  </div>
+</article>

@@ -1,0 +1,591 @@
+@media screen and (max-width: 767px) {
+
+    /* menu area css */
+    .header-top {
+        display: none;
+    }
+
+    .header-bottom {
+        height: 82px;
+    }
+
+    .header-bottom .container {
+        position: relative;
+        padding-left: 0 !important;
+        padding-right: 0 !important;
+    }
+
+    .header-bottom .logo img {
+        width: 50px !important;
+        height: 50px !important;
+    }
+
+    .header-bottom .menu-area {
+        padding-left: 0px !important;
+        padding-right: 0px !important;
+    }
+
+    .header-bottom .menu-area {
+        display: unset !important;
+    }
+
+    .header-bottom .menu-area #superfish-main-toggle span {
+        font-size: 0px;
+        padding: 18px;
+        width: 32px;
+        height: 32px;
+        background: url(..//images/humergmenu.png)no-repeat;
+    }
+
+    .menu-area {
+        width: 100% !IMPORTANT;
+    }
+
+    .header-bottom #block-mainnavigation {
+        text-align: right;
+        margin-top: -40px !important;
+    }
+
+    #superfish-main-accordion {
+        background: #ff9901;
+        position: absolute;
+        margin-top: 37px;
+        z-index: 1111;
+    }
+
+    #superfish-main-accordion li ul li.sf-clone-parent {
+        display: none;
+    }
+
+    .header-bottom .menu-area ul li ul {
+        margin-top: unset !important;
+        border-top: 3px solid #333 !important;
+    }
+
+    #superfish-main-accordion li.sf-depth-1 {
+        border-bottom: 2px solid #fff;
+    }
+
+    .menu-area .menu.sf-menu li a {
+        color: #fff;
+    }
+
+    .header-bottom .menu-area a.sf-depth-1.menuparent.sf-with-ul::after {
+        content: " " !important;
+        margin: 0px;
+        width: 16px;
+        height: 16px;
+        background-size: 100%;
+        background: url(../images/plus.svg) no-repeat;
+        display: inline-block;
+        position: absolute;
+        right: 20px;
+    }
+
+    .header-bottom .menu-area #block-popoutsearch,
+    .header-bottom .menu-area #block-gtranslate {
+        display: none;
+    }
+
+    .header-top {
+        padding: 0px 0px !important;
+    }
+
+    .menu-area .gtranslate .switcher {
+        position: unset;
+    }
+
+    .header-bottom .logo .site-title {
+        font-size: 1rem;
+        letter-spacing: 1px;
+    }
+
+    .header-bottom .logo {
+        float: left;
+        width: 60% !important;
+    }
+
+    .header-bottom .menu-area .switcher .selected {
+        width: 20px;
+        height: 30px;
+    }
+
+    .header-top .contact-info {
+        display: unset !important;
+        align-items: unset I !important;
+    }
+
+    .contact-info li.contact-phone {
+        width: 100% !important;
+    }
+
+    .contact-info li.contact-email {
+        width: 100%;
+    }
+
+    .header-top-left .contact-info li.contact-phone:after {
+        content: unset !important;
+
+    }
+
+    /* banner area css */
+    .view-id-slideshow .views-field.views-field-nothing .title {
+        font-size: 2em !important;
+        line-height: 0px !important;
+
+    }
+
+    .view-id-slideshow .views_slideshow_controls_text_next a {
+        top: -25px;
+    }
+
+    .view-id-slideshow .views_slideshow_controls_text_previous a {
+        top: -25px;
+    }
+
+    .view-id-slideshow .views_slideshow_controls_text_next a,
+    .view-id-slideshow .views_slideshow_controls_text_previous a {
+        width: 30px !important;
+        height: 30px !important;
+    }
+
+    /* Temple css */
+    .view-temple .col-sm-4.views-col {
+        width: 100% !important;
+
+    }
+
+    .sidebar-second #midcontent_area {
+        width: 100% !important;
+        float: left;
+    }
+
+    #sidebar_second_area {
+        width: 100% !important;
+        float: right;
+    }
+
+    /*  Gallery Photo  Css */
+    .view--photo-gallery .col-sm-3.views-col {
+        width: 100% !important;
+    }
+
+    /*  Aarti detail page css */
+    .view-youtube-video-page-listing .col-sm-4.views-col {
+        width: 100% !important;
+        padding: 10px 0px;
+    }
+
+    .view-youtube-video-page-listing .views-exposed-form input#edit-keys {
+        width: 300px !important;
+        padding-right: 42px;
+    }
+
+    .view-bhajan .view-header {
+        margin-bottom: 20px;
+    }
+
+    #views-exposed-form-youtube-video-page-listing-page-1,
+    #views-exposed-form-youtube-video-page-listing-page-2,
+    #views-exposed-form-youtube-video-page-listing-page-3,
+    #views-exposed-form-youtube-video-page-listing-page-4 {
+        width: 100%;
+    }
+
+    /* Download pdf css  */
+    .view-pdf-download .col-sm-4.views-col {
+        width: 100% !important;
+    }
+
+    /* Register Form Css Web form */
+    .thakurji-form .js-form-item.form-item {
+        width: 100% !important;
+        float: left;
+        margin-right: 2%;
+    }
+
+    #block-thakurji-local-tasks nav.tabs {
+        display: none;
+    }
+
+    /* banner css */
+
+    h1 {
+        font-size: 2rem;
+    }
+
+    h2 {
+        font-size: 1.2rem;
+    }
+
+    .buttons {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .info-cards {
+        flex-direction: column;
+    }
+
+    .view-daily-services-prayers .views-col,
+    .view-upcoming-major-festival .views-col {
+        width: 100% !important;
+    }
+
+    .prayers-title,
+    .festival-title,
+    .intro-text .main-heading {
+        font-size: 1.5rem !important;
+    }
+
+    div#video {
+        overflow: hidden;
+        padding: 10px;
+    }
+
+    .festival-card {
+        width: unset !important;
+
+    }
+
+    .view-homepage-festival-block {
+        padding: 1rem !important;
+    }
+
+    .festival-header h2 {
+        font-size: 1.2rem;
+    }
+
+    .views-view-grid.horizontal.cols-6 .views-row {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+    }
+
+    .views-view-grid.horizontal.cols-6 .views-col {
+        flex: 1 1 calc(16.6666% - 10px);
+        box-sizing: border-box;
+    }
+
+    .views-view-grid.horizontal.cols-6 .views-col {
+        flex: 1 1 calc(50% - 10px);
+    }
+
+    .month-box h4 {
+        font-size: 1rem !important;
+
+    }
+
+    .month-box strong {
+        font-size: 0.8rem !important;
+    }
+
+    .month-box .fest-title {
+        font-size: 0.75rem;
+    }
+
+    .month-box {
+        height: 150px;
+    }
+
+    .festival-header h2 {
+        font-size: 1.2rem !important;
+
+    }
+
+    .temple-section {
+        display: unset !important;
+    }
+
+    .temple-left h2 {
+        font-size: 1.5rem !important;
+
+    }
+
+    div#block-thakurji-templemapsection {
+        padding: unset !important;
+    }
+
+    .newsletter-section {
+        margin: 30px auto;
+
+    }
+
+    .about-sacred-temple {
+        padding: unset !important;
+        text-align: left !important;
+    }
+
+    .about-stats {
+        gap: 2rem;
+
+    }
+
+    .about-right {
+        margin-top: 10px;
+    }
+
+    #maindiv {
+        padding: 10px;
+    }
+
+    .newsletter-form input[type="email"],
+    .newsletter-form input[type="text"] {
+        width: 190px;
+
+    }
+
+    .banner-image img {
+        height: 50vh;
+        object-fit: cover;
+    }
+
+    div#video-gallery-area {
+        overflow: hidden;
+    }
+
+    section.temple-gallery-header h2 {
+        font-size: 2rem !important;
+
+    }
+
+    .gallery-grid {
+        display: grid;
+        grid-template-columns: unset !important;
+
+    }
+
+    .view-pdf-download .views-view-grid .views-col {
+        width: 50% !important;
+    }
+
+    .download-pdf {
+        background: #fff;
+        border: 1px solid #eee;
+        padding: 10px;
+        border-radius: 5px;
+        height: 100%;
+    }
+
+
+}
+
+
+/* Responsive */
+@media (max-width: 900px) {
+    .contact-container {
+        flex-direction: column;
+    }
+
+    .contact-form-card form {
+        grid-template-columns: 1fr;
+    }
+
+    .contact-form-card form .form-item--subject,
+    .contact-form-card form .form-item--message,
+    .contact-form-card .webform-button--submit {
+        grid-column: span 1;
+    }
+}
+
+@media (max-width: 768px) {
+    .bannerVideoWrap {
+        height: 70vh !important;
+    }
+
+    #unmuteBtn {
+        font-size: 14px;
+        padding: 8px 16px;
+    }
+
+    .view-latest-news {
+        padding: unset !important;
+    }
+
+    .lettest-head {
+        font-size: 2em !important;
+
+    }
+
+/* ul#superfish-main-accordion
+    .sf-depth-1.menuparent.sf-expanded
+    .menuparent::after {
+    content: "-" !important;
+    font-size: 40px;
+    color: #fff;
+    line-height: 28px;
+    font-weight: bold;
+    position: absolute;
+    right: 0px;
+    top: 0px;
+    padding: 7px 20px 9px 19px;
+    z-index: 1;
+} */
+
+
+.our-blogs .views-col {
+    width: 100%;
+    max-width: unset !important;
+    display: unset !important;
+}
+.our-blogs .views-col{
+    width: 100% !important;
+}
+.festival-layout {
+    flex-direction: column;
+    padding: 24px;
+  }
+
+  .festival-image,
+  .festival-info {
+    flex: 1 1 100%;
+    text-align: center;
+  }
+
+  .festival-title {
+    font-size: 1.6rem;
+  }
+
+  .festival-description {
+    font-size: 1rem;
+  }
+
+  .festival-date {
+    margin-left: 0;
+    margin-top: 12px;
+  }
+  .logo a.site-title {
+    display: block !important;
+}
+.contact-form-card form {
+    display: unset !important;
+}
+
+}
+
+
+
+/* Responsive */
+@media (max-width: 992px) {
+  .our-blogs .views-col {
+    max-width: 48%;
+  }
+}
+
+@media (max-width: 576px) {
+  .our-blogs .views-col {
+    max-width: 100%;
+  }
+
+  .recent-inner-box a img {
+    height: 200px;
+  }
+
+  .blog-title {
+    font-size: 1rem;
+  }
+}
+
+
+@media (min-width: 768px) {
+  .newsletter-form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    flex-wrap: nowrap;
+  }
+
+  .newsletter-form .form-item-enter-your-email,
+  .newsletter-form .form-actions {
+    width: auto;
+    margin: 0;
+  }
+
+  .newsletter-form input[type="email"] {
+    width: 250px;
+  }
+
+  .newsletter-form .form-actions input[type="submit"] {
+    width: auto;
+  }
+.newsletter-form .form-item, .form-actions {
+    margin-top: unset !important;
+    margin-bottom: unset !important;
+}
+
+
+
+}
+
+@media (max-width: 767px) {
+  ul[data-block="footer_middle_second"] {
+    grid-template-columns: repeat(2,1fr);
+    display: grid;
+    word-break: keep-all;
+  }
+  
+.damami-card {
+    max-width: unset !important;
+    padding: unset !important;
+}
+.damami-socials {
+     justify-content: unset !important;
+  }
+  
+.daily-services-card {
+    padding: 15px 0px !important;
+    max-width: unset !important;
+}
+.contact-card {
+    padding: unset !important; 
+    max-width: unset !important;;
+}
+.damami-footer {
+    padding: 10px 0px !important;
+}
+.footer-center {
+    text-align: unset;
+}
+.footer-right {
+    text-align: unset;
+    display:none;
+}
+div#video-gallery-area {
+    padding: 0 10px;
+}
+.whole-footer-middle-area .container {
+    padding: 0 10px;
+}
+.temple-page .temple-table {
+    display: block;
+    overflow-x: auto;
+    white-space: nowrap;
+}
+.view-pdf-download .views-col {
+    padding: unset !important;
+
+}
+.views-view-grid .views-col {
+    float: left;
+    margin: unset !important;
+}
+.contact-form-body form {
+    display: unset !important;
+}
+.contact-section {
+    padding: 60px 10px;
+}
+
+.view--photo-gallery .views-view-grid .views-col {
+    width: 100% !important;
+    margin: unset !important;
+}
+}
+
+
+
+
+
+
+

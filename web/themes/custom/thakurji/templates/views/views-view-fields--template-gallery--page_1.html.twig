@@ -1,0 +1,12 @@
+{% set category_name = fields.field_category.content|striptags %}
+<div class="gallery-card {{ category_name|clean_class }}">
+<div class="gallery-image">
+{{ fields.field_upload_image.content }}
+<span class="gallery-badge">{{ category_name }}</span>
+</div>
+<div class="gallery-info">
+<h3 class="gallery-title">{{ fields.title.content }}</h3>
+</div>
+</div>
+
+

@@ -1,0 +1,7 @@
+name: 'Custom Login'
+type: module
+description: 'Provides custom login routes.'
+core_version_requirement: ^10
+package: Custom
+dependencies:
+  - drupal:user

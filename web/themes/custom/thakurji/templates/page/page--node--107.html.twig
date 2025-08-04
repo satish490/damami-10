@@ -1,0 +1,24 @@
+<div class="contact-section">
+  <div class="contact-header">
+    <h1>Contact Us</h1>
+    <p>Get in touch with us for temple visits, ceremonies, or any spiritual guidance you need.</p>
+  </div>
+
+  <div class="contact-container">
+    <!-- LEFT SIDE: Contact Info Block -->
+    <div class="contact-info">
+      {{ drupal_entity('block_content', '36106aa1-d9ed-4fe9-b20c-963d51611247') }}
+    </div>
+
+    <!-- RIGHT SIDE: Send us a Message -->
+    <div class="contact-form-card">
+      <div class="contact-form-header">
+        <span class="form-icon"><img src="{{ base_path ~ directory }}/images/mesage.png" alt="Send Message"></span>
+        <h2>Send us a Message</h2>
+      </div>
+      <div class="contact-form-body">
+        {{ drupal_entity('webform', 'contact_us') }}
+      </div>
+    </div>
+  </div>
+</div>

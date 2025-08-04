@@ -1,0 +1,23 @@
+{#
+  Custom banner block for Home Page Banner Management (Block 2)
+#}
+
+{# Step 1: Extract image URL from field_banner_image.content #}
+{% set image_html = fields.field_banner_image.content %}
+{% set image_src = image_html|split('src="')[1]|split('"')[0] %}
+
+<section class="homeBannerSection">
+  <div class="bannerImageWrap" style="background-image: url('{{ image_src }}');">
+    <div class="overlay"></div>
+    <div class="bannerContent container text-center">
+      {% if fields.title %}
+        <h1 class="bannerTitle">{{ fields.title.content }}</h1>
+      {% endif %}
+      {% if fields.field_banner_description %}
+        <div class="bannerDescription">
+          {{ fields.field_banner_description.content }}
+        </div>
+      {% endif %}
+    </div>
+  </div>
+</section>

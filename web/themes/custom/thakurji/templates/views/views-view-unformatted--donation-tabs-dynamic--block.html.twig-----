@@ -1,0 +1,20 @@
+{% set tabs = {} %}
+{% for row in rows %}
+  {% set category = row.content['#row'].field_category_title %}
+  {% set tabs = tabs|merge({ (category): (tabs[category]|default('') ~ row.content) }) %}
+{% endfor %}
+
+<div class="donation-tabs">
+  <ul class="tabs">
+    {% for title, _ in tabs %}
+      <li>{{ title }}</li>
+    {% endfor %}
+  </ul>
+  <div class="tab-contents">
+    {% for title, content in tabs %}
+      <div class="tab-content">
+        {{ content }}
+      </div>
+    {% endfor %}
+  </div>
+</div>

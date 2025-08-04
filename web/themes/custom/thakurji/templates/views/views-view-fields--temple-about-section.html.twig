@@ -1,0 +1,40 @@
+<section class="about-sacred-temple">
+  <div class="intro-text">
+    <h2 class="main-heading">{{ fields.field_heading.content }}</h2>
+    <div class="prayers-underline"></div>
+    <div class="intro-subheading">{{ fields.field_subheading.content }}</div>
+  </div>
+
+  <div class="about-container">
+    <div class="about-left">
+      <div class="heritage-section">
+        <h3 class="heritage-title">{{ fields.field_heritage_title.content }}</h3>
+        <div class="heritage-description">{{ fields.field_heritage_description.content }}</div>
+      </div>
+
+      <div class="about-stats">
+        <div class="stat-item">
+          <div class="stat-icon"><i class="fas fa-user"></i></div>
+          <div>
+            <strong>{{ fields.field_annual_devotees_count.content }}</strong>
+            <p>Annual Devotees</p>
+          </div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-icon"><i class="fas fa-mountain"></i></div>
+          <div>
+            <strong>{{ fields.field_altitude.content }}</strong>
+            <p>Above Sea Level</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="about-right">
+      <div class="image-backing"></div>
+      <div class="image-foreground">
+        {{ fields.field_image.content }}
+      </div>
+    </div>
+  </div>
+</section>

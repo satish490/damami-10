@@ -1,0 +1,24 @@
+<section class="notificationSection" id="content">
+  <div class="container">
+    <div class="marqueeScrollingWrap d-flex align-items-center justify-content-between">
+      
+      <div class="d-flex align-items-center overflow-hidden w-100">
+        <span class="latestNewsTag me-3">LATEST NEWS</span>
+
+        <div class="marqueeScrolling w-100">
+          <ul class="marquee d-flex">
+            {% for row in rows %}
+              <li class="news-item me-5">
+                {{ row.content }}
+              </li>
+            {% endfor %}
+          </ul>
+        </div>
+      </div>
+
+      <a href="{{ base_urls }}news" class="viewAll arrowLink ms-3" title="View All">
+        View All <i class="fas fa-arrow-right" aria-hidden="true"></i>
+      </a>
+    </div>
+  </div>
+</section>
