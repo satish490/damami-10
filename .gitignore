@@ -1,0 +1,67 @@
+# Drupal configuration and secrets
+/web/sites/*/*settings*.php
+/web/sites/*/*services*.yml
+/web/sites/*/settings*.php
+/web/sites/*/services*.yml
+
+# File storage (user uploads, private, temp, translations, etc.)
+/web/sites/*/files
+/web/sites/*/private
+/web/sites/*/tmp
+/web/sites/*/translations
+
+# Local development overrides (example files and local-only config)
+/web/sites/development.services.yml
+/web/sites/example.settings.local.php
+/web/sites/example.sites.php
+
+# Drupal core files (if not versioning them)
+/web/core/
+/web/vendor/
+/web/modules/contrib/
+/web/profiles/contrib/
+/web/themes/contrib/
+
+# Drupal scaffold files (managed by Composer plugin)
+/web/.csslintrc
+/web/.editorconfig
+/web/.eslintignore
+/web/.eslintrc.json
+/web/.gitattributes
+/web/.htaccess
+/web/.ht.router.php
+/web/autoload.php
+/web/composer.json
+/web/composer.lock
+/web/example.gitignore
+/web/index.php
+/web/robots.txt
+/web/update.php
+/web/web.config
+/web/INSTALL.txt
+/web/LICENSE.txt
+/web/README.txt
+
+# Global Composer and CLI tools
+/vendor/
+/composer.phar
+/drush/
+/drush.phar
+/robo/
+/robo.phar
+/drupal/
+/drupal.phar
+
+# IDE and system files
+/.idea/
+/.vscode/
+/*.sublime-project
+*.log
+*.swp
+.DS_Store
+Thumbs.db
+
+# Environment and dotenv files
+.env
+.env.local
+.env.*.local
