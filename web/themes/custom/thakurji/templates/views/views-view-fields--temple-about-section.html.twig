@@ -1,8 +1,12 @@
 <section class="about-sacred-temple">
   <div class="intro-text">
-    <h2 class="main-heading">{{ fields.field_heading.content }}</h2>
+    <h2 class="main-heading">
+      {{ fields.field_heading.content|striptags|trim|t }}
+    </h2>
     <div class="prayers-underline"></div>
-    <div class="intro-subheading">{{ fields.field_subheading.content }}</div>
+    <div class="intro-subheading">
+      {{ fields.field_subheading.content|striptags|trim|t }}
+    </div>
   </div>
 
   <div class="about-container">

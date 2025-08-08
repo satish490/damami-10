@@ -67,3 +67,5 @@ function thakurji_preprocess_views_view(&$variables) {
     $variables['festival_header_subtitle'] = t('Experience the sacred throughout the year with our festival calendar');
   }
 }
+
+

@@ -701,6 +701,9 @@ div#edit-actions {
 	margin: 12px;
 }
 
+.view-youtube-video-page-listing #edit-submit-youtube-video-page-listing:focus {
+    box-shadow: unset !important;
+}
 .view-youtube-video-page-listing #edit-actions {
 	background: #ffcc33 !important;
 	height: 39px;
@@ -2634,17 +2637,14 @@ div#video-gallery-area {
 }
 
 .image-backing {
-  position: absolute;
-  width: 90%;
-  height: 90%;
-  background: #ff7a00;
-  transform: rotate(5deg);
-  border-radius: 12px;
-  top: 25px;
-  left: 25px;
-  z-index: 1;
+    position: absolute;
+    width: 90%;
+    height: 73%;
+    background: #ff7a00;
+    transform: rotate(5deg);
+    border-radius: 12px;
+    z-index: 1;
 }
-
 .image-foreground img {
   position: relative;
   max-width: 100%;
@@ -3971,4 +3971,8 @@ div#edit-captcha-response--description {
 }
 .logo a.site-title {
   display: none;
+}
+
+.contact-info .btn-orange:hover {
+    text-decoration: none;
 }
