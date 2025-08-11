@@ -29,6 +29,7 @@
         "drupal/easy_breadcrumb": "^2.0",
         "drupal/entity_reference_revisions": "^1.12",
         "drupal/faqfield": "^8.0",
+        "drupal/google_analytics": "^4.0",
         "drupal/paragraphs": "^1.19",
         "drupal/quicktabs": "^4.0",
         "drupal/rdf": "^2.1",

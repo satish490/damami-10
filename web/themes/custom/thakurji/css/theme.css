@@ -591,6 +591,13 @@ div#edit-actions {
 	text-align: justify;
 	letter-spacing: 1px;
 }
+.temple-des p {
+    font-size: 1.05rem;
+    max-width: unset !important; 
+    margin: 0 auto 30px;
+    line-height: 1.6;
+    opacity: 0.85;
+}
 
 .temple-details-page h1.node-title {
 	text-shadow: 0 0 3px #FF0000, 0 0 5px #FF0000;
@@ -1199,6 +1206,7 @@ p {
   line-height: 1.6;
   opacity: 0.85;
 }
+
 
 .buttons {
   display: flex;
