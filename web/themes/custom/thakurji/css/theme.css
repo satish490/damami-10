@@ -1188,9 +1188,6 @@ h1 {
   font-weight: 800;
 }
 
-h1 span {
-  color: #fff;
-}
 
 h2 {
   font-size: 1.5rem;
@@ -3984,3 +3981,33 @@ div#edit-captcha-response--description {
 .contact-info .btn-orange:hover {
     text-decoration: none;
 }
+
+/* News Css  */
+
+.news-article{
+  color:var(--text);
+  background:var(--bg);
+  border-radius:16px;
+  overflow:hidden;
+  box-shadow:var(--shadow);
+}
+
+.news-hero{
+  display:grid;
+  grid-template-columns: 1.2fr 1fr;
+  gap:28px;
+  padding:28px;
+}
+
+.news-body p {
+    font-size: 1.05rem;
+    max-width: unset;
+    margin: 7px auto 30px;
+    line-height: 1.6;
+    opacity: 0.85;
+}
+
+.news-title h1 span {
+    color: #000 !important;
+}
+
