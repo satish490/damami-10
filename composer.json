@@ -38,6 +38,7 @@
         "drupal/twig_tweak": "^3.4",
         "drupal/views_field_view": "^1.0@beta",
         "drupal/views_slideshow": "^5.0",
+        "drupal/weight": "^3.6",
         "drush/drush": "^13.6"
     },
     "conflict": {

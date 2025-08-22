@@ -4011,3 +4011,143 @@ div#edit-captcha-response--description {
     color: #000 !important;
 }
 
+/* Horscope section css */
+/* ===== Horoscope Card (modern / premium) ===== */
+:root {
+  --hor-bg: #0f1115;               /* card background */
+  --hor-bg-soft: #141821;          /* inner surface */
+  --hor-text: #e8ecf3;             /* primary text */
+  --hor-muted: #aab3c5;            /* secondary text */
+  --hor-accent: #6fb1ff;           /* gradient start */
+  --hor-accent-2: #b388ff;         /* gradient end */
+  --hor-ring: 32, 126, 255;        /* ring color (rgb) */
+  --hor-radius: 20px;
+}
+
+/* Base card */
+.whole-horescope {
+  position: relative;
+  max-width: 880px;
+  margin: 24px auto;
+  padding: 28px;
+  color: var(--hor-text);
+  background:
+    linear-gradient(180deg, rgba(255,255,255,.04), rgba(255,255,255,0)) padding-box,
+    linear-gradient(135deg, var(--hor-accent), var(--hor-accent-2)) border-box;
+  border: 1px solid transparent;                 /* gradient border */
+  border-radius: var(--hor-radius);
+  box-shadow:
+    0 10px 30px rgba(0,0,0,.35),
+    inset 0 1px 0 rgba(255,255,255,.05);
+  backdrop-filter: blur(8px);
+  overflow: hidden;
+}
+
+/* subtle top glow bar */
+.whole-horescope::before {
+  content: "";
+  position: absolute;
+  inset: 0 0 auto 0;
+  height: 3px;
+  background: linear-gradient(90deg, var(--hor-accent), var(--hor-accent-2));
+  opacity: .75;
+}
+
+/* hover lift */
+.whole-horescope:hover {
+  transform: translateY(-2px);
+  box-shadow:
+    0 16px 40px rgba(0,0,0,.45),
+    inset 0 1px 0 rgba(255,255,255,.06);
+  transition: transform .25s ease, box-shadow .25s ease;
+}
+
+/* Title */
+.whole-horescope .hor-title {
+  font-size: clamp(20px, 2.6vw, 28px);
+  font-weight: 700;
+  letter-spacing: .2px;
+  line-height: 1.2;
+  margin: 0 0 14px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+/* title accent dot */
+.whole-horescope .hor-title::before {
+  content: "";
+  width: 10px; height: 10px;
+  border-radius: 999px;
+  background: radial-gradient(circle at 30% 30%, var(--hor-accent), var(--hor-accent-2));
+  box-shadow: 0 0 12px rgba(var(--hor-ring), .8);
+}
+
+/* Description */
+.whole-horescope .hor-desc {
+  color: var(--hor-muted);
+  background: linear-gradient(180deg, rgba(255,255,255,.02), rgba(255,255,255,0));
+  border-radius: 14px;
+  padding: 14px 16px;
+  line-height: 1.6;
+  font-size: clamp(14px, 1.6vw, 16px);
+  border: 1px solid rgba(255,255,255,.06);
+}
+
+/* Divider */
+.whole-horescope .hor-desc + .hor-solu {
+  margin-top: 16px;
+  padding-top: 16px;
+  border-top: 1px dashed rgba(255,255,255,.12);
+}
+
+/* Solution list/lines */
+.whole-horescope .hor-solu {
+  display: grid;
+  gap: 10px;
+  font-size: clamp(14px, 1.6vw, 16px);
+  line-height: 1.55;
+}
+
+.whole-horescope .hor-solu p,
+.whole-horescope .hor-solu div,
+.whole-horescope .hor-solu li {
+  margin: 0;
+}
+
+/* Inline tags like “Lucky Color”, “Rashi Grah” stand out */
+.whole-horescope .hor-solu strong,
+.whole-horescope .hor-solu b {
+  color: #ffffff;
+  font-weight: 700;
+}
+
+/* Make any links inside look classy */
+.whole-horescope a {
+  color: var(--hor-accent);
+  text-decoration: none;
+  border-bottom: 1px dashed rgba(var(--hor-ring), .45);
+}
+.whole-horescope a:hover {
+  color: var(--hor-accent-2);
+  border-bottom-style: solid;
+}
+
+/* Responsive padding */
+@media (max-width: 640px) {
+  .whole-horescope { padding: 22px; }
+}
+
+/* Optional: light theme toggle (if you’re on light pages) */
+.light .whole-horescope {
+  --hor-bg: #ffffff;
+  --hor-bg-soft: #f7f9fc;
+  --hor-text: #0e1320;
+  --hor-muted: #4a5568;
+  background:
+    linear-gradient(180deg, rgba(10,16,28,.02), rgba(10,16,28,0)) padding-box,
+    linear-gradient(135deg, var(--hor-accent), var(--hor-accent-2)) border-box;
+  box-shadow:
+    0 10px 30px rgba(20,30,50,.08),
+    inset 0 1px 0 rgba(255,255,255,.9);
+}
