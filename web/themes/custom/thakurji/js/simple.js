@@ -23,25 +23,25 @@
 
    
         // Donation js
-document.addEventListener("DOMContentLoaded", function () {
-    document.querySelectorAll(".donation-tab-buttons li").forEach(function(tab) {
-      tab.addEventListener("click", function() {
-        document.querySelectorAll(".donation-tab-buttons li").forEach(function(t) {
-          t.classList.remove("active");
-        });
-        tab.classList.add("active");
+// document.addEventListener("DOMContentLoaded", function () {
+//     document.querySelectorAll(".donation-tab-buttons li").forEach(function(tab) {
+//       tab.addEventListener("click", function() {
+//         document.querySelectorAll(".donation-tab-buttons li").forEach(function(t) {
+//           t.classList.remove("active");
+//         });
+//         tab.classList.add("active");
 
-        var tabId = tab.getAttribute("data-tab");
-        document.querySelectorAll(".donation-tab-content").forEach(function(content) {
-          content.classList.remove("active");
-        });
-        var target = document.getElementById(tabId);
-        if (target) {
-          target.classList.add("active");
-        }
-      });
-    });
-  });
+//         var tabId = tab.getAttribute("data-tab");
+//         document.querySelectorAll(".donation-tab-content").forEach(function(content) {
+//           content.classList.remove("active");
+//         });
+//         var target = document.getElementById(tabId);
+//         if (target) {
+//           target.classList.add("active");
+//         }
+//       });
+//     });
+//   });
 
 // document.addEventListener("DOMContentLoaded", function () {
 //   const toggleBtns = document.querySelectorAll(".toggle-btn");
