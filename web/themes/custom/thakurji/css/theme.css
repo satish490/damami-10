@@ -19,7 +19,7 @@ h6,
 span {
   padding: 0px;
   margin: 0px;
-  color: #151515;
+  color: #fff;
  font-family: "Poppins", sans-serif;
 }
 
@@ -2016,7 +2016,7 @@ div#video-gallery-area {
 }
 
 .festival-underline {
-    width: 25%;
+    width: 12%;
     height: 4px;
     background-color: #ff5c00;
     margin: 0 auto 20px;
@@ -2483,7 +2483,7 @@ div#video-gallery-area {
 }
 
 .prayers-underline {
-    width: 25% !important;
+    width: 15% !important;
     height: 4px;
     background-color: #f97316;
     margin: 0 auto 1rem auto;
@@ -2503,6 +2503,9 @@ div#video-gallery-area {
   justify-content: center;
   gap: 2rem;
   margin-top: 2rem;
+}
+.card-img img {
+    height: 260px;
 }
 
 .service-card {
@@ -2596,9 +2599,10 @@ div#video-gallery-area {
 }
 
 .intro-text .main-heading {
-  font-size: 2.5rem;
-  font-weight: 700;
-  margin-bottom: 10px;
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 10px;
+    color: #000;
 }
 .intro-subheading {
     max-width: 700px;
@@ -2680,7 +2684,7 @@ div#video-gallery-area {
 .image-backing {
     position: absolute;
     width: 90%;
-    height: 73%;
+    height: 55%;
     background: #ff7a00;
     transform: rotate(5deg);
     border-radius: 12px;
@@ -2697,6 +2701,13 @@ div#video-gallery-area {
 
 .festival-card:hover {
   transform: translateY(-5px);
+}
+.festival-body p {
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    margin-bottom: unset !important;
 }
 
 .festival-image-wrapper {
@@ -2796,12 +2807,11 @@ div#video-gallery-area {
 }
 
 .festival-image-wrapper img {
-  width: 100%;
-  height: 200px;
-  object-fit: cover;
-  display: block;
+    width: 100%;
+    height: 260px;
+    object-fit: cover;
+    display: block;
 }
-
 .festival-date {
   position: absolute;
   top: 10px;
