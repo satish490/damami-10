@@ -1,0 +1,34 @@
+<?php
+
+/**
+ * Implements hook_schema().
+ */
+function visitor_tracker_schema() {
+  $schema['visitors'] = [
+    'description' => 'Stores individual visitor records.',
+    'fields' => [
+      'visitors_id' => ['type' => 'serial', 'not null' => TRUE],
+      'visitors_uid' => ['type' => 'int', 'not null' => TRUE],
+      'visitors_ip' => ['type' => 'varchar', 'length' => 64, 'not null' => TRUE],
+      'language' => ['type' => 'varchar', 'length' => 12, 'not null' => TRUE],
+      'visitors_date_time' => ['type' => 'int', 'not null' => TRUE],
+      'visitors_url' => ['type' => 'text', 'not null' => FALSE],
+      'visitors_path' => ['type' => 'text', 'not null' => FALSE],
+      'visitors_user_agent' => ['type' => 'text', 'not null' => FALSE],
+      'counter' => ['type' => 'int', 'default' => 1, 'not null' => TRUE],
+    ],
+    'primary key' => ['visitors_id'],
+  ];
+
+  $schema['visitor_counter'] = [
+    'description' => 'Stores language-wise daily visitor counts.',
+    'fields' => [
+      'id' => ['type' => 'serial', 'not null' => TRUE],
+      'english_counter' => ['type' => 'int', 'default' => 0, 'not null' => TRUE],
+      'hindi_counter' => ['type' => 'int', 'default' => 0, 'not null' => TRUE],
+    ],
+    'primary key' => ['id'],
+  ];
+
+  return $schema;
+}

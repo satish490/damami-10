@@ -1,0 +1,19 @@
+visitor_tracker.path_entry:
+  path: '/path-entry'
+  defaults:
+    _controller: '\Drupal\visitor_tracker\Controller\VisitorTrackerController::insert'
+    _title: 'Visitor Entry'
+  requirements:
+    _permission: 'access content'
+  options:
+    no_cache: TRUE
+
+visitor_tracker.set_path_entry:
+  path: '/set-path-entry'
+  defaults:
+    _controller: '\Drupal\visitor_tracker\Controller\VisitorTrackerController::update'
+    _title: 'Visitor Count Update'
+  requirements:
+    _permission: 'access content'
+  options:
+    no_cache: TRUE

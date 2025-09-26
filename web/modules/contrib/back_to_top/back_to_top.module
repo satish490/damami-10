@@ -14,14 +14,13 @@ function back_to_top_page_attachments(array &$attachments) {
   $config = \Drupal::config('back_to_top.settings');
   $settings = $config->get();
   $button_settings = [
-    'back_to_top_prevent_on_mobile' => $settings['back_to_top_prevent_on_mobile'],
-    'back_to_top_prevent_in_admin' => $settings['back_to_top_prevent_in_admin'],
-    'back_to_top_button_type' => $settings['back_to_top_button_type'],
-    'back_to_top_button_text' => $settings['back_to_top_button_text'],
+    'back_to_top_prevent_on_mobile' => isset($settings['back_to_top_prevent_on_mobile']) ? $settings['back_to_top_prevent_on_mobile'] : '',
+    'back_to_top_prevent_in_admin' => isset($settings['back_to_top_prevent_in_admin']) ? $settings['back_to_top_prevent_in_admin'] : '',
+    'back_to_top_button_type' => isset($settings['back_to_top_button_type']) ? $settings['back_to_top_button_type'] : '',
+    'back_to_top_button_text' => isset($settings['back_to_top_button_text']) ? $settings['back_to_top_button_text'] : '',
+    'back_to_top_speed' => isset($settings['back_to_top_speed']) ? $settings['back_to_top_speed'] : '',
+    
   ];
-  if ($settings['back_to_top_prevent_on_mobile'] && (is_mobile())) {
-    return FALSE;
-  }
   if ($settings['back_to_top_prevent_in_admin'] && (is_adminpage())) {
     return FALSE;
   }
@@ -33,6 +32,7 @@ function back_to_top_page_attachments(array &$attachments) {
 
   $attachments['#attached']['library'][] = 'back_to_top/back_to_top_js';
   $attachments['#attached']['drupalSettings']['back_to_top']['back_to_top_button_trigger'] = $settings['back_to_top_button_trigger'];
+  $attachments['#attached']['drupalSettings']['back_to_top']['back_to_top_speed'] = isset($settings['back_to_top_speed']) ? $settings['back_to_top_speed'] : 1000;;
 
   // Add stylesheet for image or text/css button.
   if (($settings['back_to_top_button_type']) == "text") {
@@ -70,8 +70,7 @@ function back_to_top_page_attachments(array &$attachments) {
   if ($settings['back_to_top_button_place'] == 9) {
     $css .= "top: 50%; left: 50%; margin-left: -50px;";
   }
-  // Check variables and add color from settings - this code could be done a
-  // bit nicer.
+  // Check variables and add color from settings
   if (($settings['back_to_top_button_type'] == "text") && ($settings['back_to_top_bg_color'] !== '#F7F7F7')) {
     $css .= "background: " . $settings['back_to_top_bg_color'] . ";";
   }
@@ -100,110 +99,6 @@ function back_to_top_page_attachments(array &$attachments) {
 }
 
 /**
- * Check mobile.
- *
- * Check if mobile or touch device with PHP so javascript and css isn't
- * included in that case.
- */
-function is_mobile() {
-  // Check for mobile device using Browscap module if it is available.
-  if (\Drupal::moduleHandler()->moduleExists('browscap')) {
-    $browser = \Drupal::service('browscap')->getBrowser();
-    if (isset($browser['ismobiledevice']) && $browser['ismobiledevice'] == 1) {
-      return TRUE;
-    }
-  }
-
-  if (isset($_SERVER["HTTP_X_WAP_PROFILE"])) {
-    return TRUE;
-  }
-  if (isset($_SERVER["HTTP_ACCEPT"]) && preg_match("/wap\.|\.wap/i", $_SERVER["HTTP_ACCEPT"])) {
-    return TRUE;
-  }
-  if (isset($_SERVER["HTTP_USER_AGENT"])) {
-    $user_agents = [
-      "midp",
-      "j2me",
-      "iphone",
-      "avantg",
-      "docomo",
-      "novarra",
-      "palmos",
-      "palmsource",
-      "240x320",
-      "opwv",
-      "chtml",
-      "pda",
-      "windows\ ce",
-      "mmp\/",
-      "blackberry",
-      "mib\/",
-      "symbian",
-      "wireless",
-      "nokia",
-      "hand",
-      "mobi",
-      "phone",
-      "cdm",
-      "up\.b",
-      "audio",
-      "sie\-",
-      "sec\-",
-      "samsung",
-      "htc",
-      "mot\-",
-      "mitsu",
-      "sagem",
-      "sony",
-      "alcatel",
-      "lg",
-      "erics",
-      "vx",
-      "^nec",
-      "philips",
-      "mmm",
-      "xx",
-      "panasonic",
-      "sharp",
-      "wap",
-      "sch",
-      "rover",
-      "pocket",
-      "benq",
-      "java",
-      "pt",
-      "pg",
-      "vox",
-      "amoi",
-      "bird",
-      "compal",
-      "kg",
-      "voda",
-      "sany",
-      "kdd",
-      "dbt",
-      "sendo",
-      "sgh",
-      "gradi",
-      "jb",
-      "\d\d\di",
-      "moto",
-      "ipad",
-      "android",
-      "ipod",
-      "webos",
-    ];
-
-    foreach ($user_agents as $user_string) {
-      if (preg_match("/" . $user_string . "/i", strtolower($_SERVER["HTTP_USER_AGENT"]))) {
-        return TRUE;
-      }
-    }
-  }
-  return FALSE;
-}
-
-/**
  * Check adminpage.
  *
  * Check if page viewed is in admin section or a node/edit for possible option
@@ -225,7 +120,7 @@ function is_adminpage() {
 function back_to_top_help($route_name, RouteMatchInterface $route_match) {
   switch ($route_name) {
     case 'help.page.back_to_top':
-      $text = file_get_contents(dirname(__FILE__) . "/README.txt");
+      $text = file_get_contents(dirname(__FILE__) . "/README.md");
       if (!\Drupal::moduleHandler()->moduleExists('markdown')) {
         return '<pre>' . $text . '</pre>';
       }

@@ -17,6 +17,7 @@
     "require": {
         "composer/installers": "^2.0",
         "drupal/asset_injector": "^2.21",
+        "drupal/back_to_top": "^3.0",
         "drupal/bootstrap5": "^4.0",
         "drupal/captcha": "^2.0",
         "drupal/ckeditor": "^1.0",
