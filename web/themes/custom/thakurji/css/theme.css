@@ -4376,7 +4376,13 @@ div#edit-captcha-response--description {
     color: #fff;
     padding: 100px 0;
     font-family: "Poppins",system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
+}
+.our-heritage-section{
+    color: #fff;
+    padding: 100px 0;
+    font-family: "Poppins",system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
     background: #000;
+
 }
 .heritage-container{
   max-width:1200px;
