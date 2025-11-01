@@ -4045,3 +4045,709 @@ div#edit-captcha-response--description {
     color: #000 !important;
 }
 
+
+
+
+/* About page css */
+
+/* ===== Hero Banner (keep existing classes) ===== */
+.banner{
+  position:relative;
+  width:100%;
+  height:700px;                 /* matches your img height */
+  overflow:hidden;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-family: "Poppins", system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+  color:#fff;
+  text-align:center;
+}
+
+/* background image fills the banner */
+.banner .banner-image,
+.banner .banner-image img{
+  position:absolute;
+  inset:0;
+  width:100%;
+  height:100%;
+}
+.banner .banner-image img{
+  object-fit:cover;
+  filter:brightness(0.65);      /* darken a bit for readability */
+}
+
+/* subtle dark gradient overlay */
+.banner::after{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:linear-gradient(180deg, rgba(0,0,0,.25) 0%, rgba(0,0,0,.55) 100%);
+  pointer-events:none;
+  z-index:1;
+}
+
+/* center content stack */
+.banner .banner-body{
+  position:relative;
+  z-index:2;
+  width:100%;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  padding:0 20px;
+}
+
+/* hide the default page title link (not in the visual) */
+.banner .banner-title{ display:none; }
+
+/* container width */
+.banner .banner-description .about-sacred-temple .container{
+  max-width: 980px;
+  margin: 0 auto;
+}
+
+/* inner content block */
+.banner .temple-content{
+  margin:0 auto;
+}
+
+/* badge */
+.banner .temple-badge{
+  display:inline-block;
+  padding:8px 16px;
+  border-radius:999px;
+  font-weight:600;
+  font-size:15px;
+  letter-spacing:.2px;
+  background:rgba(255,132,0,.18);
+  color:#ff9900;
+  margin-bottom:18px;
+  backdrop-filter:saturate(140%);
+}
+
+/* title */
+.banner .temple-title{
+  margin:0 0 14px;
+  font-size: clamp(34px, 5vw, 64px);
+  line-height:1.15;
+  font-weight:800;
+  color:#fff;
+}
+.banner .temple-title span{
+  color:#ff9d00;                /* orange emphasis */
+}
+
+/* description */
+.banner .temple-desc{
+  margin:0 auto 34px;
+  font-size: clamp(16px, 1.8vw, 18px);
+  line-height:1.7;
+  color:#e6e6e6;
+  max-width: 900px;
+}
+
+/* buttons row */
+.banner .temple-buttons{
+  display:flex;
+  gap:16px;
+  flex-wrap:wrap;
+  justify-content:center;
+}
+
+/* buttons (keep your classes) */
+.banner .btn-primary,
+.banner .btn-outline{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  gap:8px;
+  text-decoration:none;
+  font-weight:700;
+  font-size:16px;
+  padding:14px 26px;
+  border-radius:10px;
+  transition:transform .25s ease, box-shadow .25s ease, background .25s ease, color .25s ease, border-color .25s ease;
+}
+
+/* solid button */
+.banner .btn-primary{
+  background:#ff7a00;
+  color:#fff;
+  box-shadow:0 8px 24px rgba(255,122,0,.35);
+}
+.banner .btn-primary:hover{
+  transform:translateY(-3px);
+  background:#ff8d1a;
+  box-shadow:0 10px 28px rgba(255,122,0,.45);
+}
+
+/* outline button */
+.banner .btn-outline{
+  background:transparent;
+  color:#ff8c1a;
+  border:2px solid #ff8c1a;
+}
+.banner .btn-outline:hover{
+  color:#1b1b1b;
+  background:#ff8c1a;
+  transform:translateY(-3px);
+}
+
+/* ===== Sacred Mission Section ===== */
+.sacred-mission {
+  background-color: #000;
+  color: #fff;
+  padding: 100px 0;
+  font-family: "Poppins", sans-serif;
+}
+
+.sacred-mission .section-header {
+  text-align: center;
+  margin-bottom: 60px;
+}
+
+.sacred-mission .section-header h2 {
+  font-size: 48px;
+  font-weight: 700;
+  margin-bottom: 18px;
+  color: #fff;
+}
+
+.sacred-mission .section-header h2 span {
+  color: #ff8c1a; /* Highlighted orange */
+}
+
+.sacred-mission .section-header p {
+  font-size: 18px;
+  color: #d4d4d4;
+  line-height: 1.7;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+/* === Content layout === */
+.sacred-mission .mission-content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 60px;
+  flex-wrap: wrap;
+}
+
+/* === Left image === */
+.sacred-mission .mission-image {
+  flex: 0 0 45%;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(255, 138, 0, 0.25);
+}
+
+.sacred-mission .mission-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 20px;
+  transition: transform 0.5s ease;
+}
+
+.sacred-mission .mission-image img:hover {
+  transform: scale(1.04);
+}
+
+/* === Right content === */
+.sacred-mission .mission-details {
+  flex: 0 0 45%;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+/* === Each mission item === */
+.sacred-mission .mission-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 18px;
+  position: relative;
+  padding-left: 60px;
+}
+
+/* Create glowing circular icons using ::before */
+.sacred-mission .mission-item::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 6px;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: linear-gradient(145deg, #ff7a00, #ff9d00);
+  box-shadow: 0 0 12px rgba(255, 138, 0, 0.6);
+}
+
+/* Headings */
+.sacred-mission .mission-item h4 {
+  font-size: 20px;
+  font-weight: 700;
+  margin-bottom: 8px;
+}
+
+/* Paragraphs */
+.sacred-mission .mission-item p {
+  font-size: 16px;
+  line-height: 1.7;
+  color: #ccc;
+  margin: 0;
+}
+
+
+/* ===== Spiritual Leadership Card ===== */
+
+/* ====== CARD ====== */
+.whole-profile-all{
+  background:#0f0f0f;
+  border:1px solid rgba(255,140,26,.25);
+  border-radius:14px;
+  padding:22px;
+  color:#fff;
+  display:flex;
+  flex-direction:column;
+  gap:14px;
+  height:100%;
+  box-shadow:0 0 0 1px rgba(255,140,26,.08) inset, 0 10px 24px rgba(0,0,0,.55);
+  transition:transform .25s ease, box-shadow .25s ease, border-color .25s ease;
+}
+.whole-profile-all:hover{
+  transform:translateY(-4px);
+  border-color:rgba(255,140,26,.45);
+  box-shadow:0 0 0 1px rgba(255,140,26,.12) inset, 0 14px 28px rgba(0,0,0,.6), 0 0 22px rgba(255,140,26,.12);
+}
+
+.profile-image{
+  border-radius:12px;
+  overflow:hidden;
+  background:#141414;
+  box-shadow:0 8px 22px rgba(0,0,0,.45);
+}
+.profile-image img{
+  display:block;
+  width:100%;
+  height:240px;                
+  object-fit:cover;
+  border-radius:12px;
+}
+
+.profile-title{ margin-top:4px; }
+.profile-title a{
+  font-family:"Poppins",system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
+  font-weight:800;
+  font-size:22px;
+  line-height:1.3;
+  color:#fff;
+  text-decoration:none;
+  transition:color .25s ease;
+}
+.profile-title a:hover{ color:#ff8c1a; }
+
+.profile-desc,
+.profile-desc p{
+  margin:0;
+  font-size:14px;
+  font-weight:700;
+  color:#ff8c1a;
+}
+
+.profile-body, .profile-body p {
+    margin: 6px 0 0;
+    font-size: 15px;
+    line-height: 1.8;
+    color: #cfcfcf;
+    height: 150px;
+}
+
+
+.leader-profile {
+    background: #141414;
+    padding: 6rem 0;
+}
+
+/* ===== Heritage Section ===== */
+.heritage-section {
+    color: #fff;
+    padding: 100px 0;
+    font-family: "Poppins",system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
+    background: #000;
+}
+.heritage-container{
+  max-width:1200px;
+  margin:0 auto;
+  padding:0 24px;
+  display:grid;
+  grid-template-columns: 1.1fr .9fr;  /* left / right */
+  gap:64px;
+  align-items:start;
+}
+
+/* ----- Left ----- */
+.heritage-left h2{
+  margin:0 0 16px;
+  font-size:48px;
+  font-weight:800;
+  line-height:1.15;
+  color:#fff;
+}
+.heritage-left h2 span{ color:#ff8c1a; }
+
+.heritage-left > p{
+  font-size:18px;
+  color:#d6d6d6;
+  line-height:1.8;
+  max-width:660px;
+  margin:0 0 22px;
+}
+
+.heritage-list{
+  list-style:none;
+  margin:0 0 26px;
+  padding:0;
+  display:grid;
+  gap:14px;
+}
+.heritage-list li{
+  position:relative;
+  padding-left:28px;
+  font-size:16px;
+  color:#eaeaea;
+  line-height:1.8;
+}
+.heritage-list li::before{
+  content:"";
+  position:absolute;
+  left:0;
+  top:9px;
+  width:10px;
+  height:10px;
+  border-radius:50%;
+  background:#ff9d00;
+  box-shadow:0 0 0 3px rgba(255,157,0,.18);
+}
+
+/* CTA */
+.heritage-btn{
+  display:inline-flex;
+  align-items:center;
+  gap:10px;
+  text-decoration:none;
+  font-weight:700;
+  font-size:16px;
+  background:#ff7a00;
+  color:#fff;
+  padding:14px 24px;
+  border-radius:12px;
+  box-shadow:0 10px 22px rgba(255,122,0,.35);
+  transition:transform .25s ease, background .25s ease, box-shadow .25s ease;
+}
+.heritage-btn:hover{
+  background:#ff8d1a;
+  transform:translateY(-2px);
+  box-shadow:0 12px 26px rgba(255,122,0,.45);
+}
+.heritage-btn .btn-icon{ font-size:18px; line-height:1; }
+
+/* ----- Right (cards) ----- */
+.heritage-right{
+  display:flex;
+  flex-direction:column;
+  gap:22px;
+}
+
+.heritage-card{
+  display:flex;
+  align-items:flex-start;
+  gap:18px;
+  background:#111;
+  border:1px solid rgba(255,140,26,.25);
+  border-radius:16px;
+  padding:24px;
+  box-shadow:0 0 0 1px rgba(255,140,26,.08) inset, 0 10px 24px rgba(0,0,0,.55);
+  transition:transform .25s ease, box-shadow .25s ease, border-color .25s ease;
+}
+.heritage-card:hover{
+  transform:translateY(-3px);
+  border-color:rgba(255,140,26,.4);
+  box-shadow:0 0 0 1px rgba(255,140,26,.12) inset, 0 14px 28px rgba(0,0,0,.6), 0 0 22px rgba(255,140,26,.12);
+}
+
+.icon-circle{
+  flex:0 0 44px;
+  width:44px;
+  height:44px;
+  border-radius:50%;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:20px;
+  color:#fff;
+  background:linear-gradient(145deg,#ff7a00,#ff9d00);
+  box-shadow:0 0 12px rgba(255,138,0,.55);
+}
+
+.heritage-card h3{
+  margin:0 0 6px;
+  font-size:20px;
+  font-weight:800;
+  color:#fff;
+}
+.heritage-card p{
+  margin:0;
+  font-size:15px;
+  line-height:1.7;
+  color:#cfcfcf;
+}
+
+
+
+/* Login Page  css*/
+.LoginSection .mainLogo {
+  padding: 30px 0;
+  gap: 15px;
+}
+
+.loginLeft.common_heading {
+  padding: 0;
+  margin: 0;
+  position: relative;
+}
+
+.loginLeft.common_heading h1.bannerFont {
+  font-size: 72px;
+  margin-top: 0;
+  position: relative;
+  z-index: 2;
+  color: #fff;
+  transform: unset;
+}
+
+.loginLeft.common_heading img.about-thumb3 {
+  top: -100px;
+  left: -60px;
+  z-index: 1;
+}
+
+.common_heading img {
+  animation: spin 25s linear infinite;
+  position: absolute;
+  top: -77px;
+  left: -160px;
+  z-index: -1;
+  width: 290px;
+  height: 290px;
+}
+
+
+
+.common_heading {
+  padding: 80px 0 100px;
+  text-align: center;
+  margin-top: 40px;
+}
+
+
+
+.LoginSection {
+  min-height: 100vh;
+  background: linear-gradient(to bottom, #030303, #0a0a23);
+  overflow: hidden;
+}
+
+.LoginSection .LoginForm {
+  min-height: calc(100vh - 90px);
+  display: flex;
+  align-content: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.loginRight {
+  background: #1E1E1E;
+  border-radius: 20px;
+  padding: 40px 32px;
+  max-width: 525px;
+  margin: 0 auto;
+}
+
+.loginRight h3 {
+    font-size: 24px;
+    line-height: 34px;
+    margin-bottom: 30px;
+    font-weight: 400;
+    color: #fff;
+}
+.loginRight .region #block-quavigo-local-tasks {
+  display: none;
+}
+
+.loginRight form .row.mb-3 {
+  margin-bottom: 0 !important;
+}
+
+.loginRight form label {
+  font-size: 14px;
+  margin-bottom: 5px;
+  color: #fff;
+}
+
+.loginRight form input {
+  background: #F8FAFD;
+  border: 1px solid #2958A34D;
+  border-radius: 10px;
+  padding: 16px 15px;
+  font-size: 14px;
+  line-height: 14px;
+  width: inherit;
+}
+
+.loginRight form .form-item {
+  margin-bottom: 20px;
+}
+
+.loginRight form input.form-submit {
+  background: #80ff00;
+  border-radius: 6px;
+  color: #fff;
+  font-size: 20px;
+  padding: 15px;
+  line-height: 20px;
+  transition: 0.3s all ease-in-out;
+  border: 1px solid;
+  width: 98%;
+}
+
+.loginRight form input.form-submit:hover {
+  background: transparent;
+  color: #2958a3;
+}
+
+.loginRight form input.form-submit:focus {
+  outline: 1px solid;
+}
+
+.captcha-type-challenge--image .captcha__element {
+  flex-direction: row;
+  flex-wrap: nowrap;
+  align-items: center;
+  gap: 0;
+  margin-bottom: 20px;
+}
+
+.captcha-type-challenge--image .captcha__element img {
+  max-height: 50px;
+  border: 1px solid #2958A34D;
+  border-radius: 10px 0px 0px 10px;
+  padding: 8px;
+  background: #fff;
+  border-right: 0;
+}
+
+.captcha-type-challenge--image .captcha__element input {
+  width: 98%;
+  border-top-right-radius: 10px;
+  border-bottom-right-radius: 10px;
+  border-left: 0;
+  margin-top: 0px;
+  height: 50px;
+  padding: 0 30px;
+}
+
+.reload-captcha-wrapper {
+  background: #fff;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  padding: 10px;
+  border: 1px solid #2958A34D;
+  border-radius: 0;
+}
+
+.error:is([type="color"], [type="date"], [type="datetime-local"], [type="email"], [type="file"], [type="month"], [type="number"], [type="password"], [type="search"], [type="tel"], [type="text"], [type="time"], [type="url"], [type="week"], textarea):focus {
+  outline: solid 1px #f00;
+}
+
+:is([type="color"], [type="date"], [type="datetime-local"], [type="email"], [type="file"], [type="month"], [type="number"], [type="password"], [type="search"], [type="tel"], [type="text"], [type="time"], [type="url"], [type="week"], textarea):focus {
+  outline: solid 1px var(--primaryColor) !important;
+}
+
+.user-login-form input#edit-name,
+.user-login-form #edit-pass {
+  width: 98%;
+  height: 50px;
+}
+
+.google-login a {
+  color: #fff;
+  text-decoration: none;
+}
+
+/* ----- Responsive ----- */
+@media (max-width: 992px){
+  .heritage-container{
+    grid-template-columns:1fr;
+    gap:40px;
+  }
+  .heritage-left h2{ font-size:40px; }
+}
+@media (max-width: 600px){
+  .heritage-section{ padding:70px 0; }
+  .icon-circle{ width:40px; height:40px; font-size:18px; }
+  .heritage-card{ padding:20px; }
+}
+
+
+
+
+
+
+/* ---- responsive tweaks ---- */
+@media (min-width: 992px){
+  .whole-profile-all{ padding:24px; }
+  .profile-image img{ height: 280px; }
+}
+@media (max-width: 575px){
+  .profile-image img{ height: 220px; }
+  .profile-title a{ font-size:20px; }
+}
+
+
+
+/* === Responsive === */
+@media (max-width: 992px) {
+  .sacred-mission .mission-content {
+    flex-direction: column;
+    gap: 40px;
+  }
+
+  .sacred-mission .mission-image,
+  .sacred-mission .mission-details {
+    flex: 0 0 100%;
+  }
+
+  .sacred-mission .section-header h2 {
+    font-size: 40px;
+  }
+}
+
+@media (max-width: 600px) {
+  .sacred-mission {
+    padding: 70px 0;
+  }
+
+  .sacred-mission .mission-item::before {
+    width: 32px;
+    height: 32px;
+  }
+
+  .sacred-mission .section-header p {
+    font-size: 16px;
+  }
+}
+

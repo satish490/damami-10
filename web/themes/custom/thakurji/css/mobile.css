@@ -760,3 +760,35 @@
 .prayers-underline {
     width: 50% !important;
 }
+
+@media (max-width: 992px){
+  .banner{ height: 620px; }
+}
+@media (max-width: 768px){
+  .banner{ height: 560px; }
+  .banner .temple-desc{ margin-bottom:26px; }
+}
+@media (max-width: 480px){
+  .banner{ height: 520px; }
+  .banner .temple-buttons{ gap:12px; }
+  .banner .btn-primary,
+  .banner .btn-outline{ width:100%; max-width:320px; }
+}
+.view-leadership-profile .views-view-grid.horizontal .views-row{
+  display:flex !important;
+  gap:28px !important;       
+  margin:0 !important;
+}
+.view-leadership-profile .views-view-grid.horizontal .views-col{
+  float:none !important;
+  width:auto !important;        
+  flex:1 1 0;                   
+  padding:0 !important;
+}
+@media (max-width: 1100px){
+  .view-leadership-profile .views-view-grid.horizontal .views-col{ flex:1 1 calc(50% - 14px); }
+}
+@media (max-width: 680px){
+  .view-leadership-profile .views-view-grid.horizontal .views-row{ gap:20px !important; }
+  .view-leadership-profile .views-view-grid.horizontal .views-col{ flex:1 1 100%; }
+}

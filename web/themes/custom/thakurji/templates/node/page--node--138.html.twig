@@ -1,0 +1,31 @@
+
+{% include '@thakurji/includes/header.html.twig' %}
+
+<div class="our-services-wrapper">
+  {{ drupal_view('banner', 'block_12') }}
+
+     {{ drupal_entity('block_content', 19) }}
+
+<div class="leader-profile">
+<div class="container">
+    {{ drupal_view('leadership_profile', 'block_1') }}
+    </div>
+ </div>
+
+
+       {{ drupal_entity('block_content', 20) }}
+
+
+
+
+</div>
+{# {{ page.content}} #}
+
+
+
+{% include '@thakurji/includes/footer.html.twig' %}
+
+
+
+
+
