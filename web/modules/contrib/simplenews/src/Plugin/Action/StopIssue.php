@@ -27,7 +27,7 @@ class StopIssue extends ActionBase {
   /**
    * {@inheritdoc}
    */
-  public function access($node, AccountInterface $account = NULL, $return_as_object = FALSE) {
+  public function access($node, ?AccountInterface $account = NULL, $return_as_object = FALSE) {
 
     if ($node->hasField('simplenews_issue') && $node->simplenews_issue->target_id != NULL) {
       return AccessResult::allowedIfHasPermission($account, 'administer newsletters')

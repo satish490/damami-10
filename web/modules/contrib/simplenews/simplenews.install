@@ -5,6 +5,7 @@
  * Install, update and uninstall functions for the simplenews module.
  */
 
+use Drupal\Core\Config\FileStorage;
 use Drupal\Core\Database\Database;
 use Drupal\Core\Entity\ContentEntityType;
 use Drupal\Core\Field\BaseFieldDefinition;
@@ -744,4 +745,16 @@ function simplenews_update_940000() {
   $storage_config = FieldStorageConfig::loadByName('node', 'simplenews_issue');
   $storage_config->set('langcode', 'en');
   $storage_config->save();
+}
+
+/**
+ * Install config system.action.simplenews_subscriber_delete_action.
+ */
+function simplenews_update_940001() {
+  $config_name = 'system.action.simplenews_subscriber_delete_action';
+
+  $config_path = \Drupal::moduleHandler()->getModule('simplenews')->getPath() . '/config/install';
+  $source = new FileStorage($config_path);
+  $config_storage = \Drupal::service('config.storage');
+  $config_storage->write($config_name, $source->read($config_name));
 }

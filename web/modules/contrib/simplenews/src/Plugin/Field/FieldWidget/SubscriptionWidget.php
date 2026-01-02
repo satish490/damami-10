@@ -32,7 +32,7 @@ class SubscriptionWidget extends OptionsButtonsWidget implements SubscriptionWid
   /**
    * {@inheritdoc}
    */
-  public function setAvailableNewsletterIds(array $newsletter_ids = NULL) {
+  public function setAvailableNewsletterIds(?array $newsletter_ids = NULL) {
     $this->newsletterIds = array_keys(simplenews_newsletter_get_visible());
     if (isset($newsletter_ids)) {
       $this->newsletterIds = array_intersect($newsletter_ids, $this->newsletterIds);

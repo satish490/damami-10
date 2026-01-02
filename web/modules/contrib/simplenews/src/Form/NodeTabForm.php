@@ -86,7 +86,7 @@ class NodeTabForm extends FormBase {
   /**
    * {@inheritdoc}
    */
-  public function buildForm(array $form, FormStateInterface $form_state, NodeInterface $node = NULL) {
+  public function buildForm(array $form, FormStateInterface $form_state, ?NodeInterface $node = NULL) {
     $config = $this->config('simplenews.settings');
     $status = $node->simplenews_issue->status;
     $summary = $this->spoolStorage->issueSummary($node);
@@ -119,21 +119,24 @@ class NodeTabForm extends FormBase {
       '#validate' => ['::validateTestAddress'],
     ];
 
-    // Show newsletter sending options if newsletter has not yet been sent.
-    if ($unsent) {
-      $form['send'] = [
-        '#type' => 'details',
-        '#open' => TRUE,
-        '#title' => $this->t('Send'),
-      ];
+    // Show newsletter sending options.
+    $form['send'] = [
+      '#type' => 'details',
+      '#open' => TRUE,
+      '#title' => $this->t('Send'),
+    ];
 
-      // Add some text to describe the send situation.
-      $form['send']['count'] = [
-        '#type' => 'item',
-        '#markup' => $this->t('Send newsletter issue to @count subscribers.', ['@count' => $summary['count']]),
-      ];
+    // Add some text to describe the send situation.
+    $form['send']['count'] = [
+      '#type' => 'item',
+      '#markup' => $summary['description'],
+    ];
 
-      if (!$node->isPublished()) {
+    if (($status == SIMPLENEWS_STATUS_SEND_NOT) || ($status == SIMPLENEWS_STATUS_SEND_READY)) {
+      if ($status == SIMPLENEWS_STATUS_SEND_READY) {
+        $send_text = $this->t('Newsletters can only be sent once.');
+      }
+      elseif (!$node->isPublished()) {
         $send_text = $this->t('Mails will be sent when the issue is published.');
         $button_text = $this->t('Send on publish');
       }
@@ -152,24 +155,16 @@ class NodeTabForm extends FormBase {
       $form['send']['send'] = [
         '#type' => 'submit',
         '#button_type' => 'primary',
+        '#disabled' => $status == SIMPLENEWS_STATUS_SEND_READY,
         '#value' => $button_text ?? $this->t('Send now'),
       ];
     }
     else {
-      $form['status'] = [
-        '#type' => 'item',
-        '#title' => $summary['description'],
+      $form['send']['stop'] = [
+        '#type' => 'submit',
+        '#submit' => ['::submitStop'],
+        '#value' => $this->t('Stop sending'),
       ];
-      if ($status != SIMPLENEWS_STATUS_SEND_READY) {
-        $form['actions'] = [
-          '#type' => 'actions',
-        ];
-        $form['actions']['stop'] = [
-          '#type' => 'submit',
-          '#submit' => ['::submitStop'],
-          '#value' => $this->t('Stop sending'),
-        ];
-      }
     }
     return $form;
   }

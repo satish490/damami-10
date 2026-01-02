@@ -1,0 +1,62 @@
+/**
+ * @file
+ * Visual styles for menu.
+ */
+
+ul.menu {
+  margin-left: 1em; /* LTR */
+  padding: 0;
+  list-style: none outside;
+  text-align: left; /* LTR */
+}
+[dir="rtl"] ul.menu {
+  margin-right: 1em;
+  margin-left: 0;
+  text-align: right;
+}
+.menu-item--expanded {
+  list-style-type: circle;
+  list-style-image: url(../../../../../misc/menu-expanded.png);
+}
+.menu-item--collapsed {
+  list-style-type: disc;
+  list-style-image: url(../../../../../misc/menu-collapsed.png); /* LTR */
+}
+[dir="rtl"] .menu-item--collapsed {
+  list-style-image: url(../../../../../misc/menu-collapsed-rtl.png);
+}
+.menu-item {
+  margin: 0;
+  padding-top: 0.2em;
+}
+ul.menu a.is-active {
+  color: #000;
+}
+
+
+
+/**** MENU CSS START *****/
+nav#block-zeroned-ecommerce-admin-dashboardmenu .menu { margin: 0 -15px; list-style: none;display: flex;flex-wrap: wrap; }
+nav#block-zeroned-ecommerce-admin-dashboardmenu .menu li { list-style: none; width: 100%; padding: 15px; box-sizing: border-box; }
+nav#block-zeroned-ecommerce-admin-dashboardmenu ul > li.menu-item--expanded > a { font-weight: 600; text-align: left !important; text-decoration: none; border-radius:6px;}
+nav#block-zeroned-ecommerce-admin-dashboardmenu .menu li ul li { width:33.33%; padding: 5px 15px 0; }
+nav#block-zeroned-ecommerce-admin-dashboardmenu .menu li ul li a {
+	background-color: #ccdde7;
+	min-height: inherit;
+	padding: 10px;
+	text-decoration: none;
+	font-size: 16px;
+	text-align: left;
+	border-radius: 6px;
+	color: #005788;
+	font-weight: 500;
+}
+nav#block-zeroned-ecommerce-admin-dashboardmenu .menu li a { background-color:#005788; display: inline-block; width: 100%; min-height: auto; text-align: center; font-size: 16px; color: #fff; border: 1px solid #ccdde7; padding: 15px 15px 15px; box-sizing: border-box; position: relative; transition: all 0.3s; -webit-transition: all 0.3s; margin-bottom:10px; }
+nav#block-zeroned-ecommerce-admin-dashboardmenu .menu li a:hover { border: 1px solid #33789f; background-color: #33789f; color:#fff; text-decoration: none; }
+/*nav#block-zeroned-ecommerce-admin-dashboardmenu .menu li ul li a { background-color: #e9f8fd; min-height: inherit; padding: 10px 10px; text-decoration: none;}*/
+
+nav#block-zeroned-ecommerce-admin-dashboardmenu .view-dashboard-management {display:none;}
+
+.role_content_creator nav > ul.menu > li:not(:nth-child(2)) {
+  display: none;
+}

@@ -1,0 +1,5 @@
+# Schema for the configuration files of the thakurji_admin theme.
+
+thakurji_admin.settings:
+  type: theme_settings
+  label: 'thakurji_admin settings'

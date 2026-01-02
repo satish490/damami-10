@@ -158,7 +158,7 @@ interface SpoolStorageInterface {
    * @throws \Exception
    *   If the handler class does not exist.
    */
-  public function getRecipientHandler(ContentEntityInterface $issue, array $edited_values = NULL, $return_options = FALSE);
+  public function getRecipientHandler(ContentEntityInterface $issue, ?array $edited_values = NULL, $return_options = FALSE);
 
   /**
    * Returns a summary of key newsletter issue parameters.

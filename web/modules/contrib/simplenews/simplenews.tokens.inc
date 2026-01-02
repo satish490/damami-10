@@ -71,13 +71,13 @@ function simplenews_token_info() {
  */
 function simplenews_tokens($type, $tokens, $data, $options, BubbleableMetadata $bubbleable_metadata) {
   $replacements = [];
-  $sanitize = !empty($options['sanitize']);
 
   switch ($type) {
     case 'simplenews-subscriber':
       if (!isset($data['simplenews_subscriber'])) {
-        return;
+        return $replacements;
       }
+
       /** @var \Drupal\simplenews\Entity\Subscriber $subscriber */
       $subscriber = $data['simplenews_subscriber'];
       $newsletter = $data['newsletter'] ?? NULL;
@@ -100,6 +100,9 @@ function simplenews_tokens($type, $tokens, $data, $options, BubbleableMetadata $
             break;
 
           case 'manage-url':
+            if (!$subscriber->id()) {
+              break;
+            }
             $bubbleable_metadata->setCacheMaxAge(0);
             $replacements[$original] = simplenews_generate_url($subscriber, 'manage');
             break;
@@ -117,23 +120,35 @@ function simplenews_tokens($type, $tokens, $data, $options, BubbleableMetadata $
       break;
 
     case 'simplenews-newsletter':
-      if (!isset($data['newsletter'])) {
-        return;
+      $newsletter = $data['newsletter'] ?? NULL;
+      if (!isset($newsletter)) {
+        return $replacements;
       }
-      $newsletter = $data['newsletter'];
+
+      $language_manager = \Drupal::languageManager();
       foreach ($tokens as $name => $original) {
         switch ($name) {
           case 'name':
-            if (isset($newsletter->name)) {
-              $replacements[$original] = $sanitize ? Html::escape($newsletter->name) : $newsletter->name;
+            $current_langcode = $language_manager->isMultilingual()
+              ? $language_manager->getCurrentLanguage()->getId()
+              : NULL;
+            // The $options['langcode'] already respects the subscriber's preferred language.
+            // @see \Drupal\simplenews\Mail\MailEntity::getLanguage.
+            $subscriber_langcode = $options['langcode'] ?? $current_langcode;
+
+            if (!empty($newsletter->name)) {
+              $newsletter_name = $newsletter->name;
+              if ($language_manager->isMultilingual() && $subscriber_langcode !== $current_langcode) {
+                $config_name = 'simplenews.newsletter.' . $newsletter->id;
+                $translation = $language_manager->getLanguageConfigOverride($subscriber_langcode, $config_name);
+                $newsletter_name = $translation->get('name') ?? $newsletter_name;
+              }
+
+              $replacements[$original] = $newsletter_name;
             }
             else {
-              $replacements[$original] = t('Unassigned newsletter');
+              $replacements[$original] = t('Unassigned newsletter', [], ['langcode' => $subscriber_langcode]);
             }
-            break;
-
-          case 'url':
-            $replacements[$original] = $newsletter->url();
             break;
         }
       }

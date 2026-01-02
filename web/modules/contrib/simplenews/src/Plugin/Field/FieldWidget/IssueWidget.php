@@ -92,7 +92,7 @@ class IssueWidget extends OptionsSelectWidget implements ContainerFactoryPluginI
     $element['target_id']['#ajax'] = [
       'callback' => [$this, 'ajaxUpdateAll'],
       'wrapper' => 'simplenews-issue-widget',
-      'method' => 'replace',
+      'method' => 'replaceWith',
       'effect' => 'fade',
     ];
 
@@ -118,7 +118,7 @@ class IssueWidget extends OptionsSelectWidget implements ContainerFactoryPluginI
         '#ajax' => [
           'callback' => [$this, 'ajaxUpdateRecipientHandlerSettings'],
           'wrapper' => 'recipient-handler-settings',
-          'method' => 'replace',
+          'method' => 'replaceWith',
           'effect' => 'fade',
         ],
       ];

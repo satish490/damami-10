@@ -295,6 +295,11 @@ function simplenews_form_node_form_alter(&$form, FormStateInterface $form_state,
       }
     }
 
+    // Warn if newsletter has already been sent on edit form
+    if ($node->simplenews_issue->status == SIMPLENEWS_STATUS_SEND_READY) {
+      \Drupal::messenger()->addWarning(t('This newsletter issue has already been sent'));
+    }
+
     // Adds link to send page above a newsletter.
     $admin_or_send_rights = (\Drupal::currentUser()->hasPermission('administer newsletters') || \Drupal::currentUser()->hasPermission('send newsletter'));
     if ($admin_or_send_rights && ($node->simplenews_issue->status == SIMPLENEWS_STATUS_SEND_NOT)) {
@@ -793,8 +798,20 @@ function simplenews_generate_hash(string $mail, string $action, ?int $timestamp 
  * @return string
  *   The URL string.
  */
-function simplenews_generate_url(SubscriberInterface $subscriber, string $action, NewsletterInterface $newsletter = NULL) {
-  $url_arguments = ['absolute' => TRUE, 'langcode' => $subscriber->getLangcode()];
+function simplenews_generate_url(SubscriberInterface $subscriber, string $action, ?NewsletterInterface $newsletter = NULL) {
+  $url_arguments = ['absolute' => TRUE];
+
+  if (\Drupal::languageManager()->isMultilingual()) {
+    $preferred_langcode = $subscriber->getLangcode();
+    // Url generator still requires the full language object.
+    // After solving the issue https://www.drupal.org/project/drupal/issues/2363459,
+    // it will be possible to simplify the code.
+    $language = \Drupal::languageManager()->getLanguage($preferred_langcode);
+    if ($language) {
+      $url_arguments['language'] = $language;
+    }
+  }
+
   $route_parameters = [
     'snid' => $subscriber->id(),
     'timestamp' => \Drupal::time()->getRequestTime(),

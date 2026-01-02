@@ -913,10 +913,10 @@ $settings['migrate_node_migrate_type_classic'] = FALSE;
 $databases['default']['default'] = array (
   'database' => 'damami',
   'username' => 'root',
-  'password' => 'root',
+  'password' => '',
   'prefix' => '',
   'host' => '127.0.0.1',
-  'port' => '8091',
+  'port' => '3307',
   'isolation_level' => 'READ COMMITTED',
   'driver' => 'mysql',
   'namespace' => 'Drupal\\mysql\\Driver\\Database\\mysql',
@@ -924,3 +924,20 @@ $databases['default']['default'] = array (
 );
 $settings['config_sync_directory'] = 'sites/default/files/config_Wx5PrdmNSY9oLKNnS5Nu4MV1oL0Z6xcfi3erC5XScYwNZB9FPltUTZuHPfi9FWTMRomHTh7wcQ/sync';
 $config['system.logging']['error_level'] = 'verbose';
+
+
+
+// $databases['default']['default'] = array (
+//   'database' => 'drupalq',
+//   'username' => 'root',
+//   'password' => '',
+//   'prefix' => '',
+//   'host' => '127.0.0.1',
+//   'port' => '3307',
+//   'isolation_level' => 'READ COMMITTED',
+//   'driver' => 'mysql',
+//   'namespace' => 'Drupal\\mysql\\Driver\\Database\\mysql',
+//   'autoload' => 'core/modules/mysql\\src\\Driver\\Database\\mysql\\',
+// );
+// $settings['config_sync_directory'] = 'sites/default/files/config_9KImweOi6jvwAkiSYnejN00frNpFBO7FrUJ6TJHwyVZ7ccqH6u-5CZUX6qRyXX099mv7-uU7Zg/sync';
+// $config['system.logging']['error_level'] = 'verbose';
