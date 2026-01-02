@@ -54,7 +54,7 @@ class SimplenewsRecipientHandlerTest extends SimplenewsTestBase {
     $this->submitForm($edit, 'Save');
 
     $this->clickLink(t('Newsletter'));
-    $this->assertSession()->pageTextContains('Send newsletter issue to 1 subscribers.');
+    $this->assertSession()->pageTextContains('Newsletter issue will be sent to 1 subscribers.');
     $this->submitForm([], 'Send now');
     $this->checkRecipients(['simpletest@example.com' => 1]);
   }
@@ -78,7 +78,7 @@ class SimplenewsRecipientHandlerTest extends SimplenewsTestBase {
     $this->submitForm($edit, 'Save');
 
     $this->clickLink(t('Newsletter'));
-    $this->assertSession()->pageTextContains('Send newsletter issue to 3 subscribers.');
+    $this->assertSession()->pageTextContains('Newsletter issue will be sent to 3 subscribers.');
     $this->submitForm([], 'Send now');
     $this->checkRecipients(array_slice($users, 0, 3));
   }
@@ -113,7 +113,7 @@ class SimplenewsRecipientHandlerTest extends SimplenewsTestBase {
     $this->submitForm($edit, 'Save');
 
     $this->clickLink(t('Newsletter'));
-    $this->assertSession()->pageTextContains('Send newsletter issue to 2 subscribers.');
+    $this->assertSession()->pageTextContains('Newsletter issue will be sent to 2 subscribers.');
     $this->submitForm([], 'Send now');
     $this->checkRecipients($recipients);
   }

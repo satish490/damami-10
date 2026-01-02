@@ -302,7 +302,7 @@ class SpoolStorage implements SpoolStorageInterface {
   /**
    * {@inheritdoc}
    */
-  public function getRecipientHandler(ContentEntityInterface $issue, array $edited_values = NULL, $return_options = FALSE) {
+  public function getRecipientHandler(ContentEntityInterface $issue, ?array $edited_values = NULL, $return_options = FALSE) {
     $field = $issue->get('simplenews_issue');
     $newsletter_ids = $field->isEmpty() ? [] : array_map(function ($i) {
       return $i['target_id'];

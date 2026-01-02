@@ -250,7 +250,7 @@ class SimplenewsSourceTest extends SimplenewsTestBase {
       $this->assertEquals(1, preg_match_all('/Mail token/', $mail['params']['plaintext'], $matches));
 
       // Check the attachments and files arrays.
-      $this->assertTrue(is_array($mail['params']['attachments']));
+      $this->assertIsArray($mail['params']['attachments']);
       $this->assertEquals($mail['params']['attachments'], $mail['params']['files']);
 
       // Make sure formatted address is properly encoded.

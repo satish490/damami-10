@@ -95,7 +95,7 @@ class SubscriptionManager implements SubscriptionManagerInterface {
   /**
    * {@inheritdoc}
    */
-  public function subscribe(string $mail, string $newsletter_id, string $preferred_langcode = NULL) {
+  public function subscribe(string $mail, string $newsletter_id, ?string $preferred_langcode = NULL) {
     if (func_num_args() > 3) {
       throw new \LogicException('Only 3 arguments are supported');
     }

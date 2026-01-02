@@ -45,6 +45,7 @@ use Drupal\user\UserInterface;
  *   links = {
  *     "edit-form" = "/admin/people/simplenews/edit/{simplenews_subscriber}",
  *     "delete-form" = "/admin/people/simplenews/delete/{simplenews_subscriber}",
+ *     "delete-multiple-form" = "/admin/people/simplenews/delete/subscribers",
  *   },
  *   token_type = "simplenews-subscriber"
  * )

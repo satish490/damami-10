@@ -482,7 +482,7 @@ class SimplenewsSendTest extends SimplenewsTestBase {
     $this->assertSession()->pageTextContains('Newsletter issue is pending, 0 mails sent out of 5, 1 errors.');
 
     // Allow one mail to succeed, and the pending mail should be treated as an
-    // error.
+    // error. Also, check if "Newsletters can only be sent once" is shown.
     $results_alter = [
       SpoolStorageInterface::STATUS_DONE,
       SpoolStorageInterface::STATUS_PENDING,
@@ -492,6 +492,7 @@ class SimplenewsSendTest extends SimplenewsTestBase {
     simplenews_cron();
     $this->drupalGet('node/1/simplenews');
     $this->assertSession()->pageTextContains('Newsletter issue sent to 2 subscribers, 3 errors.');
+    $this->assertSession()->pageTextContains('Newsletters can only be sent once.');
 
   }
 

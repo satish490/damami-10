@@ -102,6 +102,15 @@ entity.simplenews_subscriber.delete_form:
   requirements:
     _entity_access: 'simplenews_subscriber.delete'
 
+entity.simplenews_subscriber.delete_multiple_form:
+  path: '/admin/people/simplenews/delete/subscribers'
+  defaults:
+    _title: 'Delete'
+    _form: '\Drupal\Core\Entity\Form\DeleteMultipleForm'
+    entity_type_id: 'simplenews_subscriber'
+  requirements:
+    _entity_delete_multiple_access: 'simplenews_subscriber'
+
 simplenews.subscriber_import:
   path: '/admin/people/simplenews/import'
   defaults:

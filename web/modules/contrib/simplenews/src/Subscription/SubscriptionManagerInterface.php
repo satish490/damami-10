@@ -23,7 +23,7 @@ interface SubscriptionManagerInterface {
    *
    * @return $this
    */
-  public function subscribe(string $mail, string $newsletter_id, string $preferred_langcode = NULL);
+  public function subscribe(string $mail, string $newsletter_id, ?string $preferred_langcode = NULL);
 
   /**
    * Unsubscribe a user from a newsletter.
