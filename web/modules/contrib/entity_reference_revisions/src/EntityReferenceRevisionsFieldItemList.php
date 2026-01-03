@@ -177,7 +177,11 @@ class EntityReferenceRevisionsFieldItemList extends EntityReferenceFieldItemList
       // If it is the same entity, only consider it as having affecting changes
       // if the target entity itself has changes.
       if ($item->entity && $item->entity->hasTranslation($langcode)) {
+<<<<<<< HEAD
         $entity = $this->entity;
+=======
+        $entity = $item->entity;
+>>>>>>> 45ac443515da5edbc0d91d7004cccd591d818f90
         assert($entity instanceof ContentEntityInterface);
         // Ensure it is compared against the loaded revision on 11.3+.
         if (version_compare(\Drupal::VERSION, '11.2.99', '>') && !$entity->getOriginal()) {

@@ -2,6 +2,10 @@ services:
   entity_reference_revisions.orphan_purger:
     class: Drupal\entity_reference_revisions\EntityReferenceRevisionsOrphanPurger
     arguments: ['@entity_type.manager', '@entity_field.manager', '@date.formatter', '@datetime.time', '@database', '@messenger']
+<<<<<<< HEAD
+=======
+  Drupal\entity_reference_revisions\EntityReferenceRevisionsOrphanPurger: '@entity_reference_revisions.orphan_purger'
+>>>>>>> 45ac443515da5edbc0d91d7004cccd591d818f90
   Drupal\entity_reference_revisions\Hook\EntityHooks:
     class: Drupal\entity_reference_revisions\Hook\EntityHooks
     autowire: true
