@@ -3,11 +3,11 @@
         'name' => 'drupal/recommended-project',
         'pretty_version' => 'dev-master',
         'version' => 'dev-master',
-        'reference' => 'c10f804b3513cbbc1bee3e7cedb95a23e3df8dfc',
+        'reference' => '7cbd86f31b649d4aff5170c5dd94b6f0b562ff06',
         'type' => 'project',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
-        'dev' => false,
+        'dev' => true,
     ),
     'versions' => array(
         'asm89/stack-cors' => array(
@@ -416,9 +416,9 @@
             'dev_requirement' => false,
         ),
         'drupal/entity_reference_revisions' => array(
-            'pretty_version' => '1.12.0',
-            'version' => '1.12.0.0',
-            'reference' => '8.x-1.12',
+            'pretty_version' => '1.14.0',
+            'version' => '1.14.0.0',
+            'reference' => '8.x-1.14',
             'type' => 'drupal-module',
             'install_path' => __DIR__ . '/../../web/modules/contrib/entity_reference_revisions',
             'aliases' => array(),
@@ -508,7 +508,7 @@
         'drupal/recommended-project' => array(
             'pretty_version' => 'dev-master',
             'version' => 'dev-master',
-            'reference' => 'c10f804b3513cbbc1bee3e7cedb95a23e3df8dfc',
+            'reference' => '7cbd86f31b649d4aff5170c5dd94b6f0b562ff06',
             'type' => 'project',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),

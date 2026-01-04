@@ -11,10 +11,7 @@ use Drupal\Core\Entity\EntityInterface;
 use Drupal\Core\Entity\TranslatableRevisionableStorageInterface;
 use Drupal\Core\Form\FormStateInterface;
 use Drupal\Core\Hook\Attribute\LegacyHook;
-<<<<<<< HEAD
-=======
 use Drupal\Core\Language\LanguageInterface;
->>>>>>> 45ac443515da5edbc0d91d7004cccd591d818f90
 use Drupal\Core\Render\Element;
 use Drupal\Core\Routing\RouteMatchInterface;
 use Drupal\Core\Url;

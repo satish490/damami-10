@@ -910,13 +910,15 @@ $settings['migrate_node_migrate_type_classic'] = FALSE;
 
 
 
+
+
 $databases['default']['default'] = array (
   'database' => 'damami',
   'username' => 'root',
-  'password' => '',
+  'password' => 'root',
   'prefix' => '',
-  'host' => 'localhost',
-  'port' => '3306',
+  'host' => '127.0.0.1',
+  'port' => '8091',
   'isolation_level' => 'READ COMMITTED',
   'driver' => 'mysql',
   'namespace' => 'Drupal\\mysql\\Driver\\Database\\mysql',
