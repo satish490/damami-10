@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "9dc63a81635e40e8b60e7a06c6f0602f",
+    "content-hash": "75a8101a4fe4915c8e13a2bd6acea071",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -2033,7 +2033,6 @@
         },
         {
             "name": "drupal/entity_reference_revisions",
-
             "version": "1.14.0",
             "source": {
                 "type": "git",
@@ -2051,7 +2050,6 @@
             },
             "conflict": {
                 "drush/drush": "<12.5.1"
-
             },
             "require-dev": {
                 "drupal/diff": "^1 || ^2"
@@ -2059,7 +2057,6 @@
             "type": "drupal-module",
             "extra": {
                 "drupal": {
-
                     "version": "8.x-1.14",
                     "datestamp": "1767266825",
                     "security-coverage": {
