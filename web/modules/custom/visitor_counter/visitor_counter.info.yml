@@ -1,0 +1,6 @@
+name: Visitor Counter
+type: module
+description: Visitor Counter Solution by Quavigo
+package: custom
+core_version_requirement: ^10 || ^11
+

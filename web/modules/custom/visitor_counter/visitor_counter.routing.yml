@@ -1,0 +1,9 @@
+visitor_counter.visitor_counter_link:
+  path: '/get-visitor-counter-link'
+  defaults:
+    _controller: '\Drupal\visitor_counter\Controller\VisitorCounterController::get_visitor_count'
+    _title: 'Render Visitor Counter Data'
+  requirements:
+    _permission: 'access content'
+  options:
+    no_cache: 'TRUE'

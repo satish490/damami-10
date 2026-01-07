@@ -1,0 +1,77 @@
+<?php
+
+/**
+ * @file
+ * Install, update and uninstall functions for the visitor_counter module.
+ */
+
+/**
+ * Implements hook_schema().
+ */
+function visitor_counter_schema() {
+
+  $schema['visitor_counter_damami'] = [
+    'description' => 'Stores total visitor count.',
+    'fields' => [
+      'id' => [
+        'description' => 'Primary ID.',
+        'type' => 'serial',
+        'unsigned' => TRUE,
+        'not null' => TRUE,
+      ],
+      'visitor_count' => [
+        'description' => 'Total number of visitors.',
+        'type' => 'int',
+        'unsigned' => TRUE,
+        'not null' => TRUE,
+        'default' => 0,
+      ],
+    ],
+    'primary key' => ['id'],
+  ];
+
+  $schema['visitor_damami'] = [
+    'description' => 'Stores each visitor log entry.',
+    'fields' => [
+      'id' => [
+        'description' => 'Primary ID.',
+        'type' => 'serial',
+        'unsigned' => TRUE,
+        'not null' => TRUE,
+      ],
+      'client_ip' => [
+        'description' => 'Client IP Address.',
+        'type' => 'varchar',
+        'length' => 64,
+        'not null' => FALSE,
+      ],
+      'created_date' => [
+        'description' => 'Date of visit (Y-m-d).',
+        'type' => 'varchar',
+        'length' => 20,
+        'not null' => FALSE,
+      ],
+    ],
+    'primary key' => ['id'],
+    'indexes' => [
+      'created_date' => ['created_date'],
+      'client_ip' => ['client_ip'],
+    ],
+  ];
+
+  return $schema;
+}
+
+/**
+ * Implements hook_install().
+ */
+function visitor_counter_install() {
+  // Insert initial counter row with id = 1.
+  \Drupal::database()->insert('visitor_counter_damami')
+    ->fields([
+      'id' => 1,
+      'visitor_count' => 0,
+    ])
+    ->execute();
+}
+

@@ -1,7 +1,0 @@
-name: Visitor Tracker
-type: module
-description: 'Tracks page visits and counts based on language.'
-package: Custom
-core_version_requirement: ^8 || ^9 || ^10
-libraries:
-  - visitor_tracker/visitor-tracker

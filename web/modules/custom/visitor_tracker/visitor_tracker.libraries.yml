@@ -1,8 +1,0 @@
-visitor-tracker:
-  version: 1.x
-  js:
-    js/visitor_tracker.js: {}
-  dependencies:
-    - core/jquery
-    - core/drupal
-    - core/drupalSettings

@@ -1,0 +1,7 @@
+visitor_counter:
+  js:
+    js/visitor_counter.js: {}
+  dependencies:
+    - core/jquery
+    - core/drupal
+    - core/drupal.once

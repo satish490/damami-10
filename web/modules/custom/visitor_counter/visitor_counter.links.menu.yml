@@ -1,0 +1,6 @@
+visitor_counter.link:
+  path: '/get-visitor-counter-link'
+  defaults:
+    _controller: '\Drupal\visitor_counter\Controller\VisitorCounterController::get_visitor_count'
+  requirements:
+    _access: 'TRUE'
