@@ -1,0 +1,18 @@
+{% include '@thakurji/includes/header.html.twig' %}
+
+
+{{ drupal_view('banner', 'block_1') }}
+
+<div class="up-festival">
+<div class="container">
+{{ drupal_view('upcoming_major_festival', 'block_2') }}
+</div>
+</div>
+
+
+
+{# <div class="page-content">
+  {{ page.content }}
+</div> #}
+
+{% include '@thakurji/includes/footer.html.twig' %}

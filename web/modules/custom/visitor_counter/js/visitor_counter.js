@@ -1,36 +1,37 @@
 
 
-
-(function ($, Drupal) {
+(function ($, Drupal, drupalSettings) {
 
   Drupal.behaviors.visitCounter = {
     attach: function (context) {
 
-      $('.visitCounter', context).once('visitCounter').each(function () {
+      $('.visitCounter', context).each(function () {
 
         var $wrapper = $(this);
 
-        // get Drupal base path
-        var basePath = drupalSettings.path.baseUrl.replace(/\/$/, '');
+        console.log('visitCounter found');
 
-        var currentPath = window.location.pathname;
+        var base = drupalSettings.path.baseUrl.replace(/\/$/, '');
+        var current = window.location.pathname;
 
-        // language-aware route
         var url =
-          currentPath.indexOf('/hi') !== -1
-            ? basePath + '/hi/get-visitor-counter-link'
-            : basePath + '/get-visitor-counter-link';
+          current.indexOf('/hi') !== -1
+            ? base + '/hi/get-visitor-counter-link'
+            : base + '/get-visitor-counter-link';
+
+        console.log('URL:', url);
 
         $.ajax({
           url: url,
           type: 'GET',
           success: function (data) {
+            console.log('Counter received:', data);
 
-            // keep existing text ("Visitors :")
-            $wrapper.html($wrapper.text() + ' ' + data);
+            // final output
+            $wrapper.text('Visitors : ' + $.trim(data));
           },
-          error: function () {
-            console.log('Visitor counter load failed');
+          error: function (xhr) {
+            console.log('Visitor counter AJAX failed', xhr.status);
           }
         });
 
@@ -39,4 +40,6 @@
     }
   };
 
-})(jQuery, Drupal);
+})(jQuery, Drupal, drupalSettings);
+
+

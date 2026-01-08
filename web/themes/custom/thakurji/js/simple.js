@@ -162,24 +162,24 @@ document.addEventListener("DOMContentLoaded", function() {
 
  // coming soon page js
 
-  window.addEventListener('load', function () {
-  setTimeout(() => {
-    document.getElementById('quavigo-loader').style.display = 'none';
-  }, 1200);
-});
+//   window.addEventListener('load', function () {
+//   setTimeout(() => {
+//     document.getElementById('quavigo-loader').style.display = 'none';
+//   }, 1200);
+// });
 
-function showNotifyPopup() {
-  document.getElementById('notify-popup').style.display = 'block';
-}
+// function showNotifyPopup() {
+//   document.getElementById('notify-popup').style.display = 'block';
+// }
 
-function hideNotifyPopup() {
-  document.getElementById('notify-popup').style.display = 'none';
-}
+// function hideNotifyPopup() {
+//   document.getElementById('notify-popup').style.display = 'none';
+// }
 
-function submitNotify() {
-  alert("Thanks! You’ll be notified.");
-  hideNotifyPopup();
-}
+// function submitNotify() {
+//   alert("Thanks! You’ll be notified.");
+//   hideNotifyPopup();
+// }
 
 
 
