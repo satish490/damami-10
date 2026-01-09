@@ -2094,10 +2094,12 @@ div#video-gallery-area {
 }
 
 .festival-body {
-  font-size: 0.95rem;
-  color: #333;
-  margin-bottom: 1.2rem;
-  line-height: 1.6;
+	font-size: 0.95rem;
+	color: #333;
+	margin-bottom: 1.2rem;
+	line-height: 1.6;
+	padding-left: 15px;
+	max-height: 40px;
 }
 
 .festival-body ul {
@@ -4098,8 +4100,6 @@ div#edit-captcha-response--description {
   padding:0 20px;
 }
 
-/* hide the default page title link (not in the visual) */
-.banner .banner-title{ display:none; }
 
 /* container width */
 .banner .banner-description .about-sacred-temple .container{
@@ -4135,8 +4135,32 @@ div#edit-captcha-response--description {
   color:#fff;
 }
 .banner .temple-title span{
-  color:#ff9d00;                /* orange emphasis */
+  color:#ff9d00;                
 }
+
+.banner {
+  position: relative;
+}
+
+.banner-body {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+}
+
+.banner-title {
+  color: #fff;
+  font-size: 48px;
+  font-weight: 700;
+}
+
+.banner-title {
+  position: relative;
+  z-index: 1;
+}
+
+
+
 
 /* description */
 .banner .temple-desc{
@@ -4692,6 +4716,10 @@ div#edit-captcha-response--description {
 .google-login a {
   color: #fff;
   text-decoration: none;
+}
+
+.view-upcoming-major-festival .views-col {
+	margin-bottom: 15px;
 }
 
 /* ----- Responsive ----- */
