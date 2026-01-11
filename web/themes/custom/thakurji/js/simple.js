@@ -294,3 +294,120 @@ document.addEventListener('DOMContentLoaded', function () {
     video.play();
     btn.style.display = 'none';
   });
+
+
+
+
+
+ // Photot  gallery js
+
+// $(document).ready(function () {
+//     // Header Sticky
+//     $(window).scroll(function () {
+//         if ($(window).scrollTop() > 0) {
+//             $('header').addClass('sticky');
+//         } else {
+//             $('header').removeClass('sticky');
+//         }
+//     });
+
+//     // Disable Animations
+//     document.querySelector('.PauseAnimationAcc').addEventListener('click', function () {
+//         document.body.classList.toggle('disable-animations');
+//         this.classList.toggle('active'); // Optional: to show it's active/paused
+//     });
+
+//     // Add class in body
+//     window.addEventListener('load', function () {
+//         document.body.classList.add('tempClass');
+//         setTimeout(function () {
+//             document.body.classList.remove('tempClass');
+//         }, 2000);
+//     });
+
+
+//     // Quote Swiper
+//     if ($('.quoteInner').length) {
+//         var quoteSwiper = new Swiper(".quoteSwiper", {
+//             slidesPerView: 1,
+//             loop: true,
+//             pagination: {
+//                 el: ".quotePagination",
+//                 clickable: true,
+//             },
+//             speed: 1000,
+//             autoplay: {
+//                 delay: 3500,
+//                 disableOnInteraction: false,
+//             },
+//         });
+//     }
+
+//     // Collaboration Swiper
+//     if ($('.collaborationInner').length) {
+//         let swiper = null;
+
+//         // Function to initialize the Swiper
+//         function initSwiper() {
+//             // If swiper is already initialized, destroy it first
+//             if (swiper) {
+//                 swiper.destroy(true, true);
+//                 swiper = null;
+//             }
+
+//             // Check if screen size is smaller than or equal to 1200px
+//             if (window.innerWidth <= 992) {
+//                 swiper = new Swiper('.collaborationSwiper', {
+//                     slidesPerView: 4,
+//                     spaceBetween: 10,
+//                     autoplay: {
+//                         delay: 3000,
+//                         disableOnInteraction: false,
+//                     },
+//                     pagination: {
+//                         el: '.swiper-pagination',
+//                         clickable: true,
+//                     },
+//                     breakpoints: {
+//                         480: {
+//                             slidesPerView: 4,
+//                             spaceBetween: 15,
+//                         },
+//                         768: {
+//                             slidesPerView: 5,
+//                             spaceBetween: 20,
+//                         }
+//                     }
+//                 });
+//                 updateStatus('Active');
+//             } else {
+//                 updateStatus('Disabled (Grid Layout)');
+//             }
+//         }
+
+//         // Update the status on the page based on Swiper initialization
+//         function updateStatus(swiperStatus) {
+//             const screenSize = window.innerWidth > 992 ? 'Desktop (>992px)' : 'Mobile/Tablet (≤992px)';
+//             document.getElementById('screenSize').textContent = screenSize;
+//             document.getElementById('swiperStatus').textContent = swiperStatus;
+//         }
+
+//         // Initialize Swiper on page load
+//         window.onload = function () {
+//             initSwiper();
+//         };
+
+//         // Add a resize event listener with debouncing to handle screen resizing
+//         window.addEventListener('resize', function () {
+//             clearTimeout(window.resizeTimer);
+//             window.resizeTimer = setTimeout(function () {
+//                 initSwiper();
+//             }, 250); // Debounce to ensure not too many re-initializations
+//         });
+//     }
+//   });
+
+
+
+
+

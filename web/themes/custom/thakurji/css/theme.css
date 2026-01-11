@@ -4722,6 +4722,123 @@ div#edit-captcha-response--description {
 	margin-bottom: 15px;
 }
 
+
+.view-upcoming-major-festival input#edit-submit-upcoming-major-festival {
+    margin-top: 30px;
+}
+
+form#views-exposed-form-upcoming-major-festival-block-2 {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 30px;
+}
+
+ /* Festival css update */
+
+ .view-upcoming-major-festival .views-exposed-form .form--inline.clearfix {
+    display: flex;
+    align-items: center;
+}
+
+
+/* Photo Gallery css */
+
+
+/* Media Section */
+.mediaGallerySection {
+  padding: 120px 0;
+}
+
+.mediaGalleryInner {
+  margin-top: 40px;
+}
+
+.mediaGalleryInner .imgWrap {
+  overflow: hidden;
+  height: 264px;
+  background-color: #000;
+}
+
+.homeMediaInner .imgWrap {
+  height: 312px;
+}
+
+.mediaGalleryInner .imgWrap img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: 0.3s all ease-in-out;
+}
+
+.mediaGalleryInner .imgWrap a:before {
+  content: '';
+  background: rgb(0 0 0 / 40%);
+  height: 100%;
+  position: absolute;
+  width: 100%;
+  transform: scale(0);
+  transition: 0.5s all ease-in-out;
+  background-image: url('../images/folder.svg');
+  background-size: 70px;
+  background-repeat: no-repeat;
+  background-position: center
+}
+
+.mediaGalleryInner .imgWrap:hover a:before {
+  transform: scale(1)
+}
+
+.homeMediaInner.mediaGalleryInner .imgWrap a:before {
+  background-image: url('../images/folder.svg');
+  background-size: 70px;
+}
+
+/* Photo Gallery */
+.mediaGalleryPage {
+  padding: 70px 0;
+}
+
+.album-box {
+  background-color: #fff;
+  padding: 15px;
+  box-shadow: 0px 0px 56px #0000001f;
+  padding-bottom: 0;
+  height: 100%;
+}
+
+.album-box p {
+  font-size: var(--Font-18);
+  margin-bottom: 0;
+  margin: 25px 0;
+  margin-left: 15px;
+  display: -webkit-box;
+  -webkit-line-clamp: 4;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  font-weight: 500;
+}
+
+div#block-zeroned-ecommerce-page-title h1 {
+  text-align: center;
+  font-weight: 200;
+  font-size: 6rem;
+  line-height: 116%;
+  text-align: center;
+}
+
+.product-title.fw-bold {
+  font-family: "EB Garamond", serif;
+  font-size: 1rem;
+}
+
+section.region.region-copyright {
+  display: flex;
+  justify-content: space-between;
+}
+
+
+
+
 /* ----- Responsive ----- */
 @media (max-width: 992px){
   .heritage-container{

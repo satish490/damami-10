@@ -6,13 +6,23 @@ global-styling:
       css/theme.css: {}
       css/bootstrap.min.css: {}
       css/fade.css: {}
-      https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css: {}
+      https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css: { type: external }
+      https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css: { type: external, weight: -1000 }
+      https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.css: { type: external }
+      https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/carousel.css: { type: external }
+      https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/carousel.thumbs.css: { type: external }
+
   js:
     js/bootstrap.min.js: {}
     js/simple.js: {}
     js/fade.js: {}
     https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js: { type: external, minified: true }
-  
+    https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js: { type: external }
+    https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.umd.js: { type: external }
+    https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/carousel.umd.js: { type: external }
+    https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/carousel.thumbs.umd.js: { type: external }
+    https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.fullscreen.umd.js: { type: external }
+
   dependencies:
     - core/jquery
     - core/drupal.ajax
@@ -20,6 +30,4 @@ global-styling:
     - core/drupalSettings
     - core/drupal.dialog
     - core/jquery.once
-
-
- 
+    - core/drupal.tabs
