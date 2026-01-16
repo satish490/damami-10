@@ -35,6 +35,7 @@
         "drupal/paragraphs": "^1.19",
         "drupal/quicktabs": "^4.0",
         "drupal/rdf": "^2.1",
+        "drupal/seckit": "^2.0",
         "drupal/simplenews": "^4.1",
         "drupal/stable": "^2.1",
         "drupal/twig_tweak": "^3.4",
