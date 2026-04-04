@@ -8,67 +8,46 @@ use Symfony\Component\HttpFoundation\JsonResponse;
 class VisitorCounterController extends ControllerBase {
 
   public function get_visitor_count() {
-    // Kill page cache so every request is fresh
-    \Drupal::service('page_cache_kill_switch')->trigger();
-
-    $ipaddress = \Drupal::request()->getClientIp();
     $connection = \Drupal::database();
-    $today = date('Y-m-d');
+    $request    = \Drupal::request();
 
-    // 1. Check if this IP has already visited today
-    $already_visited = $connection->select('visitor_quavigo', 'vq')
+    // Get real client IP
+    $client_ip = $request->getClientIp();
+    $today     = date('Y-m-d');
+
+    // ✅ Check if this IP already visited TODAY
+    $existing = $connection->select('visitor_quavigo', 'vq')
       ->fields('vq', ['id'])
-      ->condition('client_ip', $ipaddress)
-      ->condition('created_date', $today)
+      ->condition('client_ip', $client_ip)
+      ->condition('created_date', $today . ' %', 'LIKE')
       ->execute()
       ->fetchField();
 
-    if ($already_visited === FALSE) {
-      // New IP for today — log the visit
+    if (!$existing) {
+      // New unique visitor for today — log and increment
       $connection->insert('visitor_quavigo')
         ->fields([
-          'client_ip'    => $ipaddress,
-          'created_date' => $today,
+          'client_ip'    => $client_ip,
+          'created_date' => date('Y-m-d H:i:s'),
         ])
         ->execute();
 
-      // 2. Check if the counter row exists (id=1)
-      $existing = $connection->select('visitor_counter_quavigo', 'vc')
-        ->fields('vc', ['visitor_count'])
+      $connection->update('visitor_counter_quavigo')
+        ->expression('visitor_count', 'visitor_count + :inc', [':inc' => 1])
         ->condition('id', 1)
-        ->execute()
-        ->fetchField();
-
-      if ($existing === FALSE) {
-        // Row doesn't exist — insert with count = 1
-        $connection->insert('visitor_counter_quavigo')
-          ->fields([
-            'id'            => 1,
-            'visitor_count' => 1,
-          ])
-          ->execute();
-        $new_count = 1;
-      } else {
-        // Increment only for new unique IP
-        $new_count = $existing + 1;
-        $connection->update('visitor_counter_quavigo')
-          ->fields(['visitor_count' => $new_count])
-          ->condition('id', 1)
-          ->execute();
-      }
-    } else {
-      // Same IP visited today — just return current count, do NOT increment
-      $new_count = $connection->select('visitor_counter_quavigo', 'vc')
-        ->fields('vc', ['visitor_count'])
-        ->condition('id', 1)
-        ->execute()
-        ->fetchField();
-
-      $new_count = $new_count !== FALSE ? $new_count : 0;
+        ->execute();
     }
 
-    // 3. Return JSON
-    return new JsonResponse(['visitor_count' => $new_count]);
+    // Always return current count
+    $visitor_count = $connection->select('visitor_counter_quavigo', 'vc')
+      ->fields('vc', ['visitor_count'])
+      ->condition('id', 1)
+      ->execute()
+      ->fetchField();
+
+    return new JsonResponse([
+      'visitor_count' => (int) $visitor_count,
+    ]);
   }
 
 }
