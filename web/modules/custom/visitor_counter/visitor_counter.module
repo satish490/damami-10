@@ -25,18 +25,8 @@ function visitor_counter_block_build_visitor_counter_block_alter(array &$build, 
 }
 
 
-// function visitor_counter_page_attachments(array &$attachments) {
-//   $attachments['#attached']['library'][] = 'visitor_counter/visitor_counter';
-// }
-
-
-function visitor_counter_preprocess_page(&$variables) {
-   global $base_url;
-    $attachments['#attached']['library'][] = 'visitor_counter/visitor_counter';
-}
+//function visitor_counter_preprocess_page(&$variables) {
+  //  global $base_url;
+    //$variables['#attached']['library'][] = 'visitor_counter/visitor.attached';
+//}
 ?>
-
-
-
-
-

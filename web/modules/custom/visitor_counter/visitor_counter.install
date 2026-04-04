@@ -2,61 +2,54 @@
 
 /**
  * @file
- * Install, update and uninstall functions for the visitor_counter module.
+ * Install, update and uninstall functions for visitor_counter module.
  */
 
 /**
  * Implements hook_schema().
  */
 function visitor_counter_schema() {
+  $schema = [];
 
-  $schema['visitor_counter_damami'] = [
-    'description' => 'Stores total visitor count.',
+  // Table: visitor_quavigo
+  $schema['visitor_quavigo'] = [
+    'description' => 'Stores each visitor hit.',
     'fields' => [
       'id' => [
-        'description' => 'Primary ID.',
-        'type' => 'serial',
-        'unsigned' => TRUE,
-        'not null' => TRUE,
-      ],
-      'visitor_count' => [
-        'description' => 'Total number of visitors.',
-        'type' => 'int',
-        'unsigned' => TRUE,
-        'not null' => TRUE,
-        'default' => 0,
-      ],
-    ],
-    'primary key' => ['id'],
-  ];
-
-  $schema['visitor_damami'] = [
-    'description' => 'Stores each visitor log entry.',
-    'fields' => [
-      'id' => [
-        'description' => 'Primary ID.',
         'type' => 'serial',
         'unsigned' => TRUE,
         'not null' => TRUE,
       ],
       'client_ip' => [
-        'description' => 'Client IP Address.',
         'type' => 'varchar',
-        'length' => 64,
+        'length' => 45,
         'not null' => FALSE,
       ],
       'created_date' => [
-        'description' => 'Date of visit (Y-m-d).',
-        'type' => 'varchar',
+        'type' => 'varchar', // safer for MySQL/Postgres
         'length' => 20,
         'not null' => FALSE,
       ],
     ],
     'primary key' => ['id'],
-    'indexes' => [
-      'created_date' => ['created_date'],
-      'client_ip' => ['client_ip'],
+  ];
+
+  // Table: visitor_counter_quavigo
+  $schema['visitor_counter_quavigo'] = [
+    'description' => 'Stores total visitor count.',
+    'fields' => [
+      'id' => [
+        'type' => 'serial',
+        'unsigned' => TRUE,
+        'not null' => TRUE,
+      ],
+      'visitor_count' => [
+        'type' => 'int',
+        'not null' => TRUE,
+        'default' => 0,
+      ],
     ],
+    'primary key' => ['id'],
   ];
 
   return $schema;
@@ -66,12 +59,31 @@ function visitor_counter_schema() {
  * Implements hook_install().
  */
 function visitor_counter_install() {
-  // Insert initial counter row with id = 1.
-  \Drupal::database()->insert('visitor_counter_damami')
-    ->fields([
-      'id' => 1,
-      'visitor_count' => 0,
-    ])
-    ->execute();
+  $database = \Drupal::database();
+  $schema = $database->schema();
+
+  // Create visitor_quavigo table
+  if (!$schema->tableExists('visitor_quavigo')) {
+    $schema->createTable('visitor_quavigo', visitor_counter_schema()['visitor_quavigo']);
+  }
+
+  // Create visitor_counter_quavigo table
+  if (!$schema->tableExists('visitor_counter_quavigo')) {
+    $schema->createTable('visitor_counter_quavigo', visitor_counter_schema()['visitor_counter_quavigo']);
+
+    // Insert default row
+    $database->insert('visitor_counter_quavigo')
+      ->fields([
+        'id' => 1,
+        'visitor_count' => 0,
+      ])
+      ->execute();
+  }
 }
 
+/**
+ * Update hook (IMPORTANT if module already enabled)
+ */
+function visitor_counter_update_9001() {
+  visitor_counter_install();
+}
