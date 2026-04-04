@@ -1,0 +1,31 @@
+
+{% set author   = attribute(fields, 'field_author_name') is defined ? fields.field_author_name.content : '' %}
+{% set date     = attribute(fields, 'field_blog_date')   is defined ? fields.field_blog_date.content   : '' %}
+{% set readlink = attribute(fields, 'view_node')    is defined ? fields.view_node.content    : '' %}
+
+<article class="blog-card">
+  <div class="blog-card__image">
+      {{ fields.field_image.content }}
+  </div>
+
+  <div class="blog-card__content">
+      <span class="blog-tag"> {{  fields.field_blog_categories.content }} </span>
+
+<h3 class="blog-title">
+  {{ fields.title.content|render|striptags|trim|raw|replace({'&amp;': '&', '&#039;': "'", '&quot;': '"', '&rsquo;': '’', '&lsquo;': '‘', '&ndash;': '-', '&mdash;': '—'}) }}
+</h3>
+
+
+    <span class="blog-desc"> {{ fields.body.content }} </span>
+
+    <div class="blog-meta">
+      {% if author %}<span class="author">{{ author|render|striptags }}</span>{% endif %}
+      {% if date %}  <span class="date-blogs">{{ date|render|striptags }}</span>{% endif %}
+    </div>
+
+    <div class="read-more">
+      {{ readlink }} 
+    </div>
+  </div>
+</article>
+

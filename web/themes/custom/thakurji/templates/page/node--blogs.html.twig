@@ -1,0 +1,33 @@
+
+
+<div class="blog-wrapper container">
+  <div class="row">
+  <div class="breadcum">
+	<div class="container">
+		{{ page.breadcrumb }}
+	</div>
+</div>
+    <div class="col-sm-8 blog-left">
+      <h1 class="blog-title">{{ node.title.value }}</h1>
+      {% if content.field_image %}
+        <div class="blogs-images mb-3">
+          {{ content.field_image }}
+        </div>
+      {% endif %}
+      <div class="blog-meta mb-3">
+        {% if content.field_author_name %}
+          <span class="blog-author">By {{ content.field_author_name }}</span>
+        {% endif %}
+        {% if node.created %}
+          <span class="date-blogs">{{ node.created.value|date('F j, Y') }}</span>
+        {% endif %}
+      </div>
+      <div class="blog-body">
+        {{ content.body }}
+      </div>
+    </div>
+    <div class="col-sm-4 blog-right">
+      {{ drupal_view('latest_blogs', 'sidebar_blog') }}
+    </div>
+  </div>
+</div>

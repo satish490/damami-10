@@ -1,0 +1,48 @@
+
+
+{# Safely handle field rendering #}
+{% set img       = fields.field_image.content %}
+{% set title     = fields.title.content|render|striptags|trim %}
+{% set body_html = fields.body.content|render %}
+{% set body_text = body_html|striptags|trim %}
+{% set body_trim = body_text|length > 280 ? body_text|slice(0, 280) ~ '…' : body_text %}
+{% set author    = fields.field_author_name.content|render|striptags|trim %}
+{% set date      = fields.field_blog_date.content|render|striptags|trim %}
+{% set link      = fields.view_node.content %}
+{% set category  = fields.field_blog_categories is defined ? fields.field_blog_categories.content|render|striptags|trim : '' %}
+
+<div class="latest-blog-row">
+  <div class="latest-blog-left">
+    <figure class="latest-blog-media">
+      {{ img }}
+    </figure>
+  </div>
+
+  <div class="latest-blog-right">
+    {% if category %}
+      <span class="blog-category">{{ category }}</span>
+    {% endif %}
+
+    <h2 class="blog-title">{{ title }}</h2>
+
+    <p class="blog-body">{{ body_trim }}</p>
+
+    <div class="blog-meta">
+      {% if author %}
+        <span class="blog-author">
+          {{ author }}
+        </span>
+      {% endif %}
+
+      {% if date %}
+        <span class="date-blogs">
+           {{ date }}
+        </span>
+      {% endif %}
+    </div>
+
+    <div class="read-more">
+      {{ link }}
+    </div>
+  </div>
+</div>
