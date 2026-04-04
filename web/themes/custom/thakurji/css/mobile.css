@@ -619,6 +619,9 @@
         grid-template-columns: 1fr;
         padding: 20px;
     }
+    .banner-description {
+      padding: 20px 0px !important;
+}
 }
 
 .news-media {
@@ -775,7 +778,6 @@
   .banner .btn-outline{ width:100%; max-width:320px; }
 }
 .view-leadership-profile .views-view-grid.horizontal .views-row{
-  display:flex !important;
   gap:28px !important;       
   margin:0 !important;
 }

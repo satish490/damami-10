@@ -1156,14 +1156,14 @@ h5#block-todayspecial-menu {
 	width: 100% !important;
   }
   
-  .banner-body {
+  /* .banner-body {
 	position: absolute;
 	top: 50%;
 	left: 50%;
 	transform: translate(-50%, -50%);
 	text-align: center;
 	width: 100%;
-  }
+  } */
   
   .banner-title {
 	font-size: 50px;
