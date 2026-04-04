@@ -415,45 +415,44 @@ document.addEventListener('DOMContentLoaded', function () {
 
 
 $(document).ready(function () {
-
-  if (!$("#base_url").length) return;
-
-  var base_url = $("#base_url").val();
-  if (!base_url || base_url === "undefined") return;
-
-  // Build URL (supports Hindi language path)
-  var durl = (typeof hindiLang !== "undefined"
-               && hindiLang.indexOf("/hi") !== -1)
-    ? base_url + "/hi/get-visitor-counter-link"
-    : base_url + "/get-visitor-counter-link";
-
-  $.ajax({
-    beforeSend: function () {
-      // Show spinner inside the block placeholder
-      $(".visitCounter .spinner-border").css("visibility", "visible");
-    },
-    url:    durl,
-    method: "GET",
-    cache:  false,
-
-    success: function (data) {
-      if (data && data.visitor_count !== undefined) {
-        var padded = String(data.visitor_count).padStart(10, '0');
-
-        // ✅ Directly update the block div with fresh count — no page reload
-        $(".visitCounter").html(
-          "<p class='mb-0'>Visitors: " + padded + "</p>"
-        );
+ 
+  if ($("#base_url").length) {
+    var base_url = $("#base_url").val();
+ 
+    if (base_url && base_url !== "undefined") {
+ 
+      var substring = "/hi";
+      var durl = "";
+ 
+      if (typeof hindiLang !== "undefined" && hindiLang.indexOf(substring) !== -1) {
+        durl = base_url + "/hi/get-visitor-counter-link";
+      } else {
+        durl = base_url + "/get-visitor-counter-link";
       }
-    },
-
-    complete: function () {
-      $(".visitCounter .spinner-border").css("visibility", "hidden");
-    },
-
-    error: function () {
-      $(".visitCounter").html("<p class='mb-0'>Visitors: N/A</p>");
+ 
+      $.ajax({
+        beforeSend: function () {
+          $(".spinner-border").css("visibility", "visible");
+        },
+        url: durl,
+        method: "GET",      // GET is fine for a counter endpoint
+        cache: false,
+        success: function (data) {
+          // Controller now returns JSON: { "visitor_count": 42 }
+          if (data && data.visitor_count !== undefined) {
+            var padded = String(data.visitor_count).padStart(10, '0');
+            $(".visitCounter").html("<p class='mb-0'>Visitors: " + padded + "</p>");
+          }
+        },
+        complete: function () {
+          $(".spinner-border").css("visibility", "hidden");
+        },
+        error: function () {
+          console.log("Visitor counter: Failed to fetch count.");
+        }
+      });
     }
-  });
-
+  }
+ 
 });
+

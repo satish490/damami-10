@@ -14,16 +14,26 @@ use Drupal\Core\Block\BlockBase;
 class VisitorCounterBlock extends BlockBase {
 
   public function build() {
-    // Kill page cache so block is never served from cache
+    // Kill page cache so the block is always fresh
     \Drupal::service('page_cache_kill_switch')->trigger();
 
-    // ✅ Render empty placeholder only — JS will fill it via AJAX
-    // This is the KEY fix: block no longer shows stale PHP-rendered count
+    $connection = \Drupal::database();
+
+    // Fetch current count directly from DB (read-only, controller handles incrementing)
+    $visitor_count = $connection->select('visitor_counter_quavigo', 'vc')
+      ->fields('vc', ['visitor_count'])
+      ->condition('id', 1)
+      ->execute()
+      ->fetchField();
+
+    $count_display = ($visitor_count !== FALSE)
+      ? str_pad($visitor_count, 10, '0', STR_PAD_LEFT)
+      : str_pad(0, 10, '0', STR_PAD_LEFT);
+
     return [
       '#type'   => 'markup',
-      '#markup' => "<div class='visitCounter'>
-                      <span class='spinner-border' style='visibility:hidden;'></span>
-                   </div>",
+      '#markup' => "<p class='mb-0 visitCounter'>Visitors: {$count_display}</p>",
+      // Ensure Drupal does NOT cache this block
       '#cache'  => ['max-age' => 0],
     ];
   }
