@@ -414,31 +414,47 @@ document.addEventListener('DOMContentLoaded', function () {
 // Visitor counter
 
 
+// 
+
+
+// Visitor counter
+
 $(document).ready(function () {
- 
+
+  // DEBUG: Check if base_url exists
+  console.log("base_url element found:", $("#base_url").length);
+  console.log("base_url value:", $("#base_url").val());
+
   if ($("#base_url").length) {
     var base_url = $("#base_url").val();
- 
+
     if (base_url && base_url !== "undefined") {
- 
+
       var substring = "/hi";
       var durl = "";
- 
+
       if (typeof hindiLang !== "undefined" && hindiLang.indexOf(substring) !== -1) {
         durl = base_url + "/hi/get-visitor-counter-link";
       } else {
         durl = base_url + "/get-visitor-counter-link";
       }
- 
+
+      console.log("Calling visitor counter URL:", durl); // DEBUG
+
       $.ajax({
         beforeSend: function () {
           $(".spinner-border").css("visibility", "visible");
         },
         url: durl,
-        method: "GET",      // GET is fine for a counter endpoint
+        method: "GET",
         cache: false,
+        headers: {
+          "Cache-Control": "no-cache, no-store, must-revalidate",
+          "Pragma": "no-cache",
+          "Expires": "0"
+        },
         success: function (data) {
-          // Controller now returns JSON: { "visitor_count": 42 }
+          console.log("Visitor counter response:", data); // DEBUG
           if (data && data.visitor_count !== undefined) {
             var padded = String(data.visitor_count).padStart(10, '0');
             $(".visitCounter").html("<p class='mb-0'>Visitors: " + padded + "</p>");
@@ -447,12 +463,17 @@ $(document).ready(function () {
         complete: function () {
           $(".spinner-border").css("visibility", "hidden");
         },
-        error: function () {
-          console.log("Visitor counter: Failed to fetch count.");
+        error: function (xhr, status, error) {
+          console.log("Visitor counter FAILED:", status, error, xhr.responseText); // DEBUG
         }
       });
-    }
-  }
- 
-});
 
+    } else {
+      console.log("base_url is empty or undefined"); // DEBUG
+    }
+
+  } else {
+    console.log("ERROR: #base_url input not found on page"); // DEBUG
+  }
+
+});
