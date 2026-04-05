@@ -47,6 +47,7 @@
         "drupal/views_field_view": "^1.0@beta",
         "drupal/views_slideshow": "^5.0",
         "drupal/weight": "^3.6",
+        "drupal/xmlsitemap": "^2.0",
         "drush/drush": "^13.6",
         "twig/twig": "^3.5"
     },
