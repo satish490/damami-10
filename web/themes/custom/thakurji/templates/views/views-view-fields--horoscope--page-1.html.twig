@@ -1,0 +1,33 @@
+<div class="col-lg-4 col-md-6 mb-4">
+      <div class="press-card">
+        <div class="card-image-wrapper">
+          <img src="{{ fields.field_horscope_image.content }}" alt="events" class="card-image">
+          <div class="date-badge">{{ fields.field_date.content }}</div>
+        </div>
+        
+        <div class="card-body-content">
+          <ul class="card-category mb-2">
+            <li>{{ fields.field_days.content }}</li>
+          </ul>
+          
+          <div class="press-release-title">
+            {{ fields.title.content }}
+          </div>
+        </div>
+        
+        <div class="card-actions">
+            <a href="{{ fields.view_node.content }}" class="read-more-btn">
+                         {% trans %} Read More {% endtrans %}  <svg xmlns="http://www.w3.org/2000/svg" width="16.516" height="8" viewBox="0 0 16.516 8">
+                <g data-name="Group 112842" transform="translate(0 -132)">
+                  <g data-name="Group 112841" transform="translate(0 132)">
+                    <path data-name="Path 167117"
+                      d="M16.327,135.543h0l-3.371-3.355a.645.645,0,0,0-.91.915l2.263,2.252H.645a.645.645,0,0,0,0,1.29H14.308L12.045,138.9a.645.645,0,0,0,.91.915l3.371-3.355h0A.646.646,0,0,0,16.327,135.543Z"
+                      transform="translate(0 -132)" fill="#01588e" />
+                  </g>
+                </g>
+              </svg>
+
+            </a>
+          </div>
+        </div>
+      </div>

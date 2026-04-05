@@ -1,0 +1,75 @@
+
+{% include '@thakurji/includes/header.html.twig' %}
+
+
+
+ <!--listing detail start-->
+  <div class="container-xl mb-5">
+<div class="row">
+	 
+	 <div class="col-lg-12">
+        <div class="article-card mb-5 mb-lg-0">
+          <!-- Article Header -->
+          <div class="article-header">
+            <div class="article-meta">
+              {% if node.field_date.value %}
+				<span class="date-badge">{{ node.field_date.value|date("d F Y") }}</span>
+			  {% endif %}
+              <ul class="card-category">
+                {% for item in node.field_author_name %}
+                    <li>{{ item.value }}</li>
+                {% endfor %}
+                   </ul>
+            </div>
+            <div class="article-actions">
+              <button class="action-btn" title="Share">
+                <svg xmlns="http://www.w3.org/2000/svg" width="19" height="21" viewBox="0 0 19 20.251">
+                  <g id="Group_112837" data-name="Group 112837" transform="translate(-21.194 0)">
+                    <path id="Path_167105" data-name="Path 167105"
+                      d="M36.237,12.515a3.988,3.988,0,0,0-2.948,1.291L28.91,11.334a3.793,3.793,0,0,0,0-2.417l4.379-2.471a3.988,3.988,0,0,0,2.948,1.291,3.918,3.918,0,0,0,3.957-3.868,3.958,3.958,0,0,0-7.914,0,3.775,3.775,0,0,0,.2,1.208L28.1,7.548a3.988,3.988,0,0,0-2.948-1.291,3.869,3.869,0,1,0,0,7.737A3.988,3.988,0,0,0,28.1,12.7l4.379,2.471a3.775,3.775,0,0,0-.2,1.208,3.958,3.958,0,1,0,3.957-3.868Zm0-10.932a2.316,2.316,0,0,1,2.339,2.286,2.339,2.339,0,0,1-4.677,0,2.316,2.316,0,0,1,2.339-2.286ZM25.151,12.412a2.287,2.287,0,1,1,2.339-2.286A2.316,2.316,0,0,1,25.151,12.412Zm11.086,6.257a2.287,2.287,0,1,1,2.339-2.286A2.316,2.316,0,0,1,36.237,18.669Z"
+                      transform="translate(0 0)" fill="#01588e" />
+                  </g>
+                </svg>
+
+              </button>
+            </div>
+          </div>
+
+          <!-- Article Title -->
+          <h2 class="article-title heading3">
+            {{ node.label }}
+          </h2>
+
+          <!-- Article Image -->
+		  {% if node.field_horscope_image.entity %}
+		  <div class="article-image-wrapper">
+		    <img src="{{ file_url(node.field_horscope_image.entity.fileuri) }}" alt="{{ node.field_horscope_image.alt }}" width="859" height="517">
+		  </div>
+		  {% endif %}
+
+          <!-- Article Content -->
+          <div class="article-content">
+	
+			  {{ content.body }}
+
+          </div>
+        </div>
+      </div>
+	  
+	   <!-- Sidebar -->
+      {# <div class="col-lg-4">
+        <div class="sidebar">
+          <div class="sidebar-card">
+            <div class="sidebar-header">
+              <h2 class="sidebar-title"> {% trans %} Top Blogs {% endtrans %}</h2>
+              <a href="{{ base_url }}/blogs" class="link1"> {% trans %} View All {% endtrans %}</a>
+            </div>
+			{{ drupal_view('blogs', 'block_1') }}
+          </div>
+        </div>
+      </div> #}
+
+</div>
+</div>
+
+{% include '@thakurji/includes/footer.html.twig' %}
