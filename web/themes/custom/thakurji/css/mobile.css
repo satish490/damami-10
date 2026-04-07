@@ -37,6 +37,18 @@
         width: 100% !IMPORTANT;
     }
 
+    .article-card.mb-5.mb-lg-0 {
+    padding: 10px;
+}
+.container-xl.mb-5 {
+    padding: unset;
+}
+
+    .article-image-wrapper img {
+    height: auto;
+    max-width: 100%;
+}
+
     .header-bottom #block-mainnavigation {
         text-align: right;
         margin-top: -46px !important;

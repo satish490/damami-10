@@ -785,48 +785,13 @@ div#edit-actions {
 	color: #008000;
 }
 
-/*  Doenload page css */
-.view-pdf-download .views-col {
-	padding: 0px 20px;
-	height: 375px;
+/*  Download page css */
+.fileSize {
+	color: #000;
 }
-
-.view-pdf-download .down-image img {
-	height: 245px;
-	width: 170px;
-	border-radius: 10px;
-	padding: 5px;
-	box-shadow: 0 0 5px 0 rgb(0 0 0 / 50%);
-}
-
-.view-pdf-download .download-pdf .down-title a {
+.item-des a {
 	text-decoration: none;
-	color: #008000;
-	font-weight: 600;
 }
-
-.view-pdf-download .down-pdf a {
-	text-decoration: none;
-	color: #008000;
-	font-weight: 500;
-}
-.view-pdf-download h1 {
-	color: #008000;
-	padding-bottom: 30px;
-	font-size: 20px;
-    }
-.view-pdf-download .down-title {
-	margin: 7px 0px;
-
-}
-.view-pdf-download .download-pdf .btn-danger {
-	color: #008000;
-	background: #ffcc33;
-	font-weight: 400;
-	border-radius: 25px;
-	padding: 5px 20px;
-	margin-top: 10px;
-    }
 
 /*  Gallery page css  */
 .view--photo-gallery .gallery-image img {
@@ -1674,7 +1639,7 @@ div#block-thakurji-templemapsection {
     height: 24px;
 }
 
-h5#block-quicklinks-menu {
+#block-quicklinks-menu {
     color: #facc15;
     font-size: 1rem;
     margin-top: 29px;
@@ -4832,6 +4797,29 @@ section.region.region-copyright {
   justify-content: space-between;
 }
 
+/* breadcrumb css */
+
+
+
+.breadCum li a {
+	color: #000;
+	text-decoration: none;
+	padding-right: 8px;
+}
+.breadcum li { color: #FFFFFF !important; font-weight: 700 !important; }
+.breadcum li a { color: #FFFF00 !important; text-decoration: underline !important; }
+.breadcum li:not(:first-child):before { color: #FFFFFF !important; }
+.breadCum { list-style: none; margin: 0 0px 0; padding: 0; display: flex; flex-wrap: wrap; 
+
+.breadCum li a { position: relative; padding: 0 12px 0 10px; font-size: var(--font14); display: inline-block; }
+.breadCum li a:before { content: ">"; position: absolute; width: 1px; height: 30px; top: 15px; right: 5px; transform: translateY(-50%); }
+.breadCum li:last-child a:before { display: none; }
+.breadCum li a:after { content: ""; position: absolute; left: 50%; transform: translateX(-50%); bottom: -5px; background-color: #000; width: 0%; height: 1px; transition: all 0.3s; }
+.breadCum li a:hover:after { width: 50%; }
+.breadCum a {
+	color: #fff;
+	text-decoration: none;
+}
 
 
 
