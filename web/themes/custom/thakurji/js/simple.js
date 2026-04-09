@@ -90,6 +90,11 @@ jQuery('.user-logged-in #block-thakurji-dropdownlanguage .dropbutton-multiple').
 		jQuery(this).toggleClass('open');
 	});
 
+jQuery('.user-logged-in #block-thakurji-dropdownlanguage-2 .dropbutton-multiple').on('click', function(event){
+		event.preventDefault();
+		jQuery(this).toggleClass('open');
+	});
+
 
   // video Gallery js
 
@@ -296,127 +301,6 @@ document.addEventListener('DOMContentLoaded', function () {
   });
 
 
-
-
-
- // Photot  gallery js
-
-// $(document).ready(function () {
-//     // Header Sticky
-//     $(window).scroll(function () {
-//         if ($(window).scrollTop() > 0) {
-//             $('header').addClass('sticky');
-//         } else {
-//             $('header').removeClass('sticky');
-//         }
-//     });
-
-//     // Disable Animations
-//     document.querySelector('.PauseAnimationAcc').addEventListener('click', function () {
-//         document.body.classList.toggle('disable-animations');
-//         this.classList.toggle('active'); // Optional: to show it's active/paused
-//     });
-
-//     // Add class in body
-//     window.addEventListener('load', function () {
-//         document.body.classList.add('tempClass');
-//         setTimeout(function () {
-//             document.body.classList.remove('tempClass');
-//         }, 2000);
-//     });
-
-
-//     // Quote Swiper
-//     if ($('.quoteInner').length) {
-//         var quoteSwiper = new Swiper(".quoteSwiper", {
-//             slidesPerView: 1,
-//             loop: true,
-//             pagination: {
-//                 el: ".quotePagination",
-//                 clickable: true,
-//             },
-//             speed: 1000,
-//             autoplay: {
-//                 delay: 3500,
-//                 disableOnInteraction: false,
-//             },
-//         });
-//     }
-
-//     // Collaboration Swiper
-//     if ($('.collaborationInner').length) {
-//         let swiper = null;
-
-//         // Function to initialize the Swiper
-//         function initSwiper() {
-//             // If swiper is already initialized, destroy it first
-//             if (swiper) {
-//                 swiper.destroy(true, true);
-//                 swiper = null;
-//             }
-
-//             // Check if screen size is smaller than or equal to 1200px
-//             if (window.innerWidth <= 992) {
-//                 swiper = new Swiper('.collaborationSwiper', {
-//                     slidesPerView: 4,
-//                     spaceBetween: 10,
-//                     autoplay: {
-//                         delay: 3000,
-//                         disableOnInteraction: false,
-//                     },
-//                     pagination: {
-//                         el: '.swiper-pagination',
-//                         clickable: true,
-//                     },
-//                     breakpoints: {
-//                         480: {
-//                             slidesPerView: 4,
-//                             spaceBetween: 15,
-//                         },
-//                         768: {
-//                             slidesPerView: 5,
-//                             spaceBetween: 20,
-//                         }
-//                     }
-//                 });
-//                 updateStatus('Active');
-//             } else {
-//                 updateStatus('Disabled (Grid Layout)');
-//             }
-//         }
-
-//         // Update the status on the page based on Swiper initialization
-//         function updateStatus(swiperStatus) {
-//             const screenSize = window.innerWidth > 992 ? 'Desktop (>992px)' : 'Mobile/Tablet (≤992px)';
-//             document.getElementById('screenSize').textContent = screenSize;
-//             document.getElementById('swiperStatus').textContent = swiperStatus;
-//         }
-
-//         // Initialize Swiper on page load
-//         window.onload = function () {
-//             initSwiper();
-//         };
-
-//         // Add a resize event listener with debouncing to handle screen resizing
-//         window.addEventListener('resize', function () {
-//             clearTimeout(window.resizeTimer);
-//             window.resizeTimer = setTimeout(function () {
-//                 initSwiper();
-//             }, 250); // Debounce to ensure not too many re-initializations
-//         });
-//     }
-//   });
-
-
-//  Visitor Js 
-
-
-// Visitor counter
-
-
-// 
-
-
 // Visitor counter
 
 $(document).ready(function () {
@@ -477,3 +361,254 @@ $(document).ready(function () {
   }
 
 });
+
+
+
+
+
+//  mobile js 
+
+
+
+(function (Drupal, once) {
+  Drupal.behaviors.accordionFlushBehavior = {
+    attach: function (context) {
+
+      // Use once() correctly and don’t index [0] before checking length.
+      const filterShortEls = once('accordion-flush-trigger', '.filter-short', context);
+      const mainContainers = once('accordion-flush-main', '.order-first', context);
+      const additionalContainers = once('accordion-flush-extra', '.view-product-catalog .accordion-flush', context);
+
+      if (!mainContainers.length || !additionalContainers.length) {
+        // Nothing to do on this page – exit quietly.
+        return;
+      }
+
+      const filterShort = filterShortEls[0] || null;
+      const mainContainer = mainContainers[0];
+      const additionalContainer = additionalContainers[0];
+
+      function isMobileView() {
+        return window.innerWidth <= 768; // Only apply for mobile views
+      }
+
+      function addHeaderAndCloseButton() {
+        if (!isMobileView()) {
+          return; // Only apply on mobile view
+        }
+
+        let panelHeader = mainContainer.querySelector('.panel-header');
+        let closeButton = mainContainer.querySelector('.close-button');
+
+        // Create panel-header if it doesn't exist
+        if (!panelHeader) {
+          panelHeader = document.createElement('div');
+          panelHeader.classList.add('panel-header');
+
+          const title = document.createElement('h2');
+          title.textContent = 'Filters';
+
+          panelHeader.appendChild(title);
+          mainContainer.insertBefore(panelHeader, mainContainer.firstChild);
+        }
+
+        // Create close button if it doesn't exist
+        if (!closeButton) {
+          closeButton = document.createElement('button');
+          closeButton.textContent = 'X';
+          closeButton.classList.add('close-button');
+
+          closeButton.addEventListener('click', function () {
+            closePanel();
+          });
+
+          panelHeader.insertAdjacentElement('afterend', closeButton);
+        }
+      }
+
+      function appendAdditionalContainer() {
+        if (!mainContainer.contains(additionalContainer) && additionalContainer.parentNode) {
+          additionalContainer.parentNode.removeChild(additionalContainer);
+          mainContainer.appendChild(additionalContainer);
+        }
+      }
+
+      function openPanel() {
+        if (!isMobileView()) {
+          return;
+        }
+        addHeaderAndCloseButton();
+        appendAdditionalContainer();
+
+        mainContainer.style.display = 'block';
+        setTimeout(function () {
+          mainContainer.classList.add('open');
+          document.body.classList.add('background-blur');
+        }, 10);
+      }
+
+      function closePanel() {
+        if (!isMobileView()) {
+          return;
+        }
+        mainContainer.classList.remove('open');
+        setTimeout(function () {
+          mainContainer.style.display = 'none';
+          document.body.classList.remove('background-blur');
+        }, 400);
+      }
+
+      function adjustPanelDisplay() {
+        if (isMobileView()) {
+          mainContainer.style.display = 'none';
+        } else {
+          mainContainer.style.display = 'block';
+          // Make sure background blur is cleared on desktop.
+          document.body.classList.remove('background-blur');
+        }
+      }
+
+      if (filterShort) {
+        filterShort.addEventListener('click', function () {
+          if (mainContainer.style.display === 'none' || !mainContainer.classList.contains('open')) {
+            openPanel();
+          } else {
+            closePanel();
+          }
+        });
+      }
+
+      // Only add one resize listener globally.
+      if (!window._accordionFlushResizeBound) {
+        window.addEventListener('resize', adjustPanelDisplay);
+        window._accordionFlushResizeBound = true;
+      }
+
+      adjustPanelDisplay();
+    }
+  };
+})(Drupal, once);
+
+
+
+
+
+
+// menu js
+
+
+document.addEventListener('DOMContentLoaded', function () {
+
+  // ELEMENTS
+  const mobileToggle = document.getElementById('mobileToggleBtn');
+  const mobileMenu = document.getElementById('mobileMenu');
+  const mobileClose = document.getElementById('mobileCloseBtn');
+  const searchToggle = document.getElementById('searchToggle');
+  const searchBox = document.getElementById('searchBox');
+  const searchClose = document.getElementById('searchCloseBtn');
+
+  // open mobile menu
+  function openMobile() {
+    if (mobileMenu) {
+      mobileMenu.classList.add('open');
+      mobileMenu.setAttribute('aria-hidden', 'false');
+      document.documentElement.style.overflow = 'hidden'; // prevent body scroll
+    }
+  }
+  // close mobile menu
+  function closeMobile() {
+    if (mobileMenu) {
+      mobileMenu.classList.remove('open');
+      mobileMenu.setAttribute('aria-hidden', 'true');
+      document.documentElement.style.overflow = '';
+    }
+  }
+
+  // toggle mobile
+  if (mobileToggle) {
+    mobileToggle.addEventListener('click', function (e) {
+      if (mobileMenu && mobileMenu.classList.contains('open')) closeMobile();
+      else openMobile();
+    });
+  }
+  if (mobileClose) mobileClose.addEventListener('click', closeMobile);
+
+  // close on outside click (mobile)
+  document.addEventListener('click', function (e) {
+    if (!mobileMenu) return;
+    if (mobileMenu.classList.contains('open')) {
+      const inside = mobileMenu.contains(e.target) || (mobileToggle && mobileToggle.contains(e.target));
+      if (!inside) closeMobile();
+    }
+  });
+
+  // ESC closes mobile & search
+  document.addEventListener('keydown', function (e) {
+    if (e.key === 'Escape') {
+      closeMobile();
+      if (searchBox) searchBox.classList.remove('show');
+    }
+  });
+
+  // SEARCH toggle
+  if (searchToggle && searchBox) {
+    searchToggle.addEventListener('click', function (e) {
+      e.preventDefault();
+      const isShown = searchBox.classList.contains('show');
+      if (isShown) searchBox.classList.remove('show');
+      else searchBox.classList.add('show');
+    });
+  }
+  if (searchClose) searchClose.addEventListener('click', function () {
+    if (searchBox) searchBox.classList.remove('show');
+  });
+
+  // MOBILE SUBMENU: add toggles for li that have UL inside mobile menu
+  (function addMobileSubmenuToggles() {
+    if (!mobileMenu) return;
+    // find list items in mobilePrimary that have nested ULs
+    const mobilePrimary = mobileMenu.querySelector('.mobile-primary');
+    if (!mobilePrimary) return;
+
+    const listItems = mobilePrimary.querySelectorAll('li');
+    listItems.forEach(function(li) {
+      const sub = li.querySelector('ul');
+      if (sub) {
+        // create toggle button
+        const toggle = document.createElement('button');
+        toggle.type = 'button';
+        toggle.className = 'submenu-toggle';
+        toggle.innerHTML = '<span class="sr-only">Toggle submenu</span><span aria-hidden="true">+</span>';
+        // place toggle at end of the anchor or li
+        const link = li.querySelector('a');
+        if (link) link.after(toggle);
+        else li.insertBefore(toggle, sub);
+
+        // click handler
+        toggle.addEventListener('click', function (ev) {
+          ev.preventDefault();
+          const isOpen = sub.style.display === 'block';
+          // close others on same level
+          const siblings = li.parentElement.children;
+          Array.prototype.forEach.call(siblings, function(sib) {
+            if (sib !== li) {
+              const sibSub = sib.querySelector('ul');
+              if (sibSub) sibSub.style.display = 'none';
+              const sibToggle = sib.querySelector('.submenu-toggle');
+              if (sibToggle) sibToggle.querySelector('span[aria-hidden]').textContent = '+';
+            }
+          });
+          if (isOpen) {
+            sub.style.display = 'none';
+            toggle.querySelector('span[aria-hidden]').textContent = '+';
+          } else {
+            sub.style.display = 'block';
+            toggle.querySelector('span[aria-hidden]').textContent = '-';
+          }
+        });
+      }
+    });
+  })();
+
+});
+
