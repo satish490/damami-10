@@ -4970,3 +4970,39 @@ section.region.region-copyright {
 div#block-thakurji-dropdownlanguage-2 {
     display: none;
 }
+#views-exposed-form-books-download-page-1 .form--inline.clearfix {
+	display: flex;
+	align-items: center;
+}
+#views-exposed-form-books-download-page-1 {
+	padding: 20px 15px 5px;
+	margin-bottom: 30px;
+	background-color: rgba(204,204,204,0.2);
+	display: flex;
+	align-items: flex-start;
+}
+
+#views-exposed-form-books-download-page-1 #edit-title {
+	font-size: 1.5rem;
+	padding-left: 20px;
+	padding-right: 20px;
+	height: 50px;
+	border-radius: 10px;
+	border: 1px solid #c0c0c0;
+	outline: none;
+	box-shadow: none !important;
+	margin-top: 0;
+	width: 100%;
+}
+#views-exposed-form-books-download-page-1 #edit-submit-books-download {
+	border-radius: 40px;
+	padding: 12px 36px;
+	background-color: #f97316;
+
+}
+#views-exposed-form-books-download-page-1 input#edit-reset {
+    border-radius: 40px;
+    padding: 12px 36px;
+    background-color: #f97316;
+  
+}
