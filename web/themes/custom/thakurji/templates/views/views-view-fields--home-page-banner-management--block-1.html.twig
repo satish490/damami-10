@@ -1,22 +1,9 @@
-{# <div class="bannerVideoWrap">
-  <video preload="auto" autoplay loop muted playsinline>
-    <source src="{{ fields.field_video_file.content }}">
-  </video>
-</div> #}
-
-<div class="bannerVideoWrap">
-  <!-- 🎥 VIDEO -->
-  <video
-    autoplay
-    muted
-    loop
-    playsinline
-    class="bannerVideo"
-  >
-    <source src="{{ fields.field_video_file.content }}">
-
-  </video>
-
-  <!-- 🔊 Unmute Button (Optional) -->
-  <button id="unmuteBtn">🔊 Enable Sound</button>
-</div>
+{% set video_file = row._entity.field_video_file.entity %}
+{% if video_file %}
+  <div class="bannerVideoWrap">
+    <video class="bannerVideo" autoplay muted loop playsinline>
+      <source src="{{ file_url(video_file.fileuri) }}" type="{{ video_file.filemime.value }}">
+    </video>
+    <button type="button" id="unmuteBtn">🔊 {{ 'Enable Sound'|t }}</button>
+  </div>
+{% endif %}

@@ -289,16 +289,16 @@ document.addEventListener('DOMContentLoaded', function () {
 });
 
 
-// banner video card mute buuton
+const bannerSoundButton = document.getElementById('unmuteBtn');
+const bannerVideo = document.querySelector('.bannerVideo');
 
- const btn = document.getElementById('unmuteBtn');
-  const video = document.querySelector('.bannerVideo');
-
-  btn.addEventListener('click', () => {
-    video.muted = false;
-    video.play();
-    btn.style.display = 'none';
+if (bannerSoundButton && bannerVideo) {
+  bannerSoundButton.addEventListener('click', () => {
+    bannerVideo.muted = false;
+    bannerVideo.play();
+    bannerSoundButton.hidden = true;
   });
+}
 
 
 // Visitor counter

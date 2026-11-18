@@ -1635,6 +1635,8 @@ div#block-thakurji-templemapsection {
 }
 
 .contact-text {
+    min-width: 0;
+    overflow-wrap: anywhere;
     color: #cbd5e1;
     font-size: 1rem;
     line-height: 1.5;
@@ -2008,7 +2010,7 @@ div#video-gallery-area {
 }
 
 .festival-card {
-  width: 400px; 
+  width: min(100%, 400px);
   background: #fff;
   border-radius: 12px;
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
@@ -3640,6 +3642,7 @@ button.filter-btn {
     overflow: hidden;
     background-color: black;
     position: relative;
+    isolation: isolate;
   }
 
   .bannerVideoWrap video {
