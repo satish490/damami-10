@@ -29,5 +29,5 @@ global-styling:
     - core/drupal
     - core/drupalSettings
     - core/drupal.dialog
-    - core/jquery.once
+    - core/once
     - core/drupal.tabs

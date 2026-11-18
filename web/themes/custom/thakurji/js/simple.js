@@ -140,28 +140,30 @@ jQuery('.user-logged-in #block-thakurji-dropdownlanguage-2 .dropbutton-multiple'
 
 
 
-document.addEventListener("DOMContentLoaded", function() {
-  const buttons = document.querySelectorAll(".filter-btn");
-  const cards = document.querySelectorAll(".gallery-card");
+(function (Drupal, once) {
+  Drupal.behaviors.templeGalleryFilters = {
+    attach(context) {
+      once('temple-gallery-filters', '.view-template-gallery .filter-buttons', context).forEach(controls => {
+        const gallery = controls.closest('.view-template-gallery');
 
-  buttons.forEach(btn => {
-    btn.addEventListener("click", () => {
-      // Remove active state from all buttons
-      buttons.forEach(b => b.classList.remove("active"));
-      btn.classList.add("active");
+        controls.addEventListener('click', event => {
+          const selected = event.target.closest('.filter-btn[data-filter]');
+          if (!selected) {
+            return;
+          }
 
-      const filter = btn.dataset.filter; // e.g. "festival"
-
-      cards.forEach(card => {
-        if (filter === "all" || card.classList.contains(filter)) {
-          card.style.display = "block";
-        } else {
-          card.style.display = "none";
-        }
+          const filter = selected.dataset.filter;
+          controls.querySelectorAll('.filter-btn').forEach(button => {
+            button.classList.toggle('active', button === selected);
+          });
+          gallery.querySelectorAll('.gallery-grid .gallery-card').forEach(card => {
+            card.hidden = filter !== 'all' && !card.classList.contains(filter);
+          });
+        });
       });
-    });
-  });
-});
+    },
+  };
+})(Drupal, once);
 
 
 
@@ -303,7 +305,7 @@ if (bannerSoundButton && bannerVideo) {
 
 // Visitor counter
 
-$(document).ready(function () {
+jQuery(document).ready(function ($) {
 
   // DEBUG: Check if base_url exists
   console.log("base_url element found:", $("#base_url").length);
